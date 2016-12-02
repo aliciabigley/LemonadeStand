@@ -12,6 +12,7 @@ namespace LemonadeStand
         {
             Weather weather = new Weather();
             weather.WeeklyWeather();
+            weather.DailyWeather();
             //Game game = new Game();
             //game.RunGame();
             Console.ReadKey();

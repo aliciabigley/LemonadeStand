@@ -10,8 +10,9 @@ namespace LemonadeStand
     {
         public void RunGame()
         {
-            DisplayWelcom();
-            DisplayRules();
+            //DisplayWelcom();
+            //DisplayRules();
+            //WeeklyWeather();
         }
         public void DisplayWelcom()
         {

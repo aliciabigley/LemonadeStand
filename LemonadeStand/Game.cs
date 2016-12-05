@@ -10,12 +10,12 @@ namespace LemonadeStand
     {
         public Random random;
         public Weather weather;
-        public Store store;
+        public Player player;
         public Game()
         {
             random = new Random();
             weather  = new Weather(random);
-            store = new Store(15);
+            player = new Player();
         }
         public void RunGame()
         {

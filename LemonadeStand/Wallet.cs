@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Owner
+   public class Wallet
     {
+        private double startUpMoney;
+
+        public void pullMoneyOut()
+        {
+            startUpMoney = 15.00;
+        }
     }
 }

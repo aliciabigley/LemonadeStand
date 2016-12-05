@@ -6,8 +6,17 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Game
+    public class Game
     {
+        public Random random;
+        public Weather weather;
+        public Store store;
+        public Game()
+        {
+            random = new Random();
+            weather  = new Weather(random);
+            store = new Store(15);
+        }
         public void RunGame()
         {
             DisplayWelcom();
@@ -36,6 +45,7 @@ namespace LemonadeStand
             Console.WriteLine("Make too much and you will have leftovers which you CANNOT use the next day.\n\n\n");
             Console.WriteLine("Finally, you will set a the price per cup.");
             Console.WriteLine("Keep in mind that in all businesses you have start up costs and maintance costs. So you don't want to price your lemonade too low or too high.\n\n\n\n");
+            Console.WriteLine("You will start with $15.00 in your pocket. Use it wisely!");
             Console.WriteLine("Would you like a game hint?");
             Console.WriteLine("[Y] or [N]");
             string userInput = Console.ReadLine().ToLower();
@@ -50,19 +60,6 @@ namespace LemonadeStand
             {
                 Console.Clear();
             }
-        }
-        public string GameLenght()
-        {
-            Console.WriteLine("How many days would you like to run your stand? [7] [14]");
-            string userInput = Console.ReadLine();
-            return userInput;
-            int cycleNumber;
-            Int32.TryParse(userInput, out cycleNumber);
-
-            //Insert loop here cycle throught 6 or 13 times
-
-
-
         }
     }
 }

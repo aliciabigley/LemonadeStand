@@ -10,9 +10,15 @@ namespace LemonadeStand
     {
         static void Main(string[] args)
         {
-            Weather weather = new Weather();
-            weather.WeeklyWeather();
-            weather.DailyWeather();
+            //Weather weather = new Weather();
+            Game game = new LemonadeStand.Game();
+
+
+            game.weather.WeeklyWeather();
+            game.weather.DailyWeather();
+            game.store.Restock();
+
+
             //Game game = new Game();
             //game.RunGame();
             Console.ReadKey();

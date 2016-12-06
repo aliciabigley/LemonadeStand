@@ -13,9 +13,9 @@ namespace LemonadeStand
         //private double ice;
         //private double sugar;
         //private double cups;
-        private double money;
+        //private double money;
         //Methods
-        public void Restock()
+        public void Restock(Player player)
         {
             Console.WriteLine("Do you need anything from the store?\n\n");
             Console.WriteLine("[Yes] or [No]");
@@ -27,25 +27,25 @@ namespace LemonadeStand
 
             else if (checkToSeeStore == "yes")
 
-            Console.WriteLine("What's on your list? [Lemons] [Sugar] [Ice] or [Cups]?\n\n");
+            Console.WriteLine("What's on your list? [L] for Lemons, [S] for Sugar, [I] for Ice, or [C] for Cups?\n\n");
             string need = Console.ReadLine().ToLower();
                 switch (need)
             {
-                case "lemon":
-
+                case "l":
+                    player.GetLemons();
                     break;
-                case "sugar":
-
+                case "s":
+                    player.GetSugar();
                     break;
-                case "ice":
-
+                case "i":
+                    player.GetIce();
                     break;
-                case "cups":
-
+                case "c":
+                    player.GetCups();
                     break;
                 default:
-                    Console.WriteLine("Sorry! That's not an option. Please try [Lemons] [Sugar] [Ice] or [Cups].");
-                    Restock();
+                    Console.WriteLine("Sorry! Try [L] for Lemons, [S] for Sugar, [I] for Ice, or [C] for Cups?");
+                    Restock(player);
                     break;
                
             }

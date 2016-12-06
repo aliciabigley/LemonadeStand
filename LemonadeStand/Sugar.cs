@@ -8,12 +8,23 @@ namespace LemonadeStand
 {
     class Sugar
     {
-        double cost;
-        string name;
-        public void getLemonInformation()
+        double sugarCost;
+        string sugarName;
+        public void setSugarCost()
         {
-            cost = 0.50;
-            name = "Sugar";
+            sugarCost = 0.50;
+        }
+        public double getSugarCost()
+        {
+            return sugarCost;
+        }
+        public void setSugarName()
+        {
+            sugarName = "Sugar";
+        }
+        public string getSugarName()
+        {
+            return sugarName;
         }
     }
 }

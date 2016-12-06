@@ -11,16 +11,22 @@ namespace LemonadeStand
         public Random random;
         public Weather weather;
         public Player player;
+        public Store store;
+
         public Game()
         {
             random = new Random();
             weather  = new Weather(random);
             player = new Player();
+            store = new Store();
+
+
         }
         public void RunGame()
         {
             DisplayWelcom();
             DisplayRules();
+            store.Restock(player);
 
         }
         public void DisplayWelcom()
@@ -45,8 +51,8 @@ namespace LemonadeStand
             Console.WriteLine("Make too much and you will have leftovers which you CANNOT use the next day.\n\n\n");
             Console.WriteLine("Finally, you will set a the price per cup.");
             Console.WriteLine("Keep in mind that in all businesses you have start up costs and maintance costs. So you don't want to price your lemonade too low or too high.\n\n\n\n");
-            Console.WriteLine("You will start with $15.00 in your pocket. Use it wisely!");
-            Console.WriteLine("Would you like a game hint?");
+            Console.WriteLine("You will start with $10.00 in your pocket. Use it wisely!\n\n");
+            Console.WriteLine("Would you like a game hint?\n\n");
             Console.WriteLine("[Y] or [N]");
             string userInput = Console.ReadLine().ToLower();
             if(userInput == "y")

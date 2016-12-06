@@ -8,11 +8,11 @@ namespace LemonadeStand
 {
    public class Wallet
     {
-        private double startUpMoney;
+        public double startUpMoney;
 
         public void pullMoneyOut()
         {
-            startUpMoney = 15.00;
+            startUpMoney = 10.00;
         }
     }
 }

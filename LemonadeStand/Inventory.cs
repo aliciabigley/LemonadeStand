@@ -12,6 +12,13 @@ namespace LemonadeStand
         List<int> sugar = new List<int>();
         List<int> ice = new List<int>();
         List<int> cups = new List<int>();
+        public void lemonList(Player store)
+        {
+            foreach(numberOfLemonsPurchased() ++)
+            {
+                
+            }
+        }
         //public void getSugarCount()
         //{
         //    List<int> sugar = new List<int>();

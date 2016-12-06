@@ -14,7 +14,7 @@ namespace LemonadeStand
         {
             lemonCost = 0.10;
         }
-        public double getCupCost()
+        public double getLemonCost()
         {
             return lemonCost;
         }

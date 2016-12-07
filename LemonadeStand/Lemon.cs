@@ -8,12 +8,12 @@ namespace LemonadeStand
 {
     class Lemon
     {
-        private double lemonCost;
+        private double lemonCost = .10;
         private string lemonName;
-        public void setLemonCost()
-        {
-            lemonCost = 0.10;
-        }
+        //public void setLemonCost()
+        //{
+        //    lemonCost = 0.10;
+        //}
         public double getLemonCost()
         {
             return lemonCost;

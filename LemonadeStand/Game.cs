@@ -28,6 +28,7 @@ namespace LemonadeStand
             DisplayRules();
             store.Restock(player);
 
+
         }
         public void DisplayWelcom()
         {

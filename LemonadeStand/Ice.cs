@@ -8,12 +8,12 @@ namespace LemonadeStand
 {
     class Ice
     {
-        double iceCost;
+        double iceCost = .05;
         string iceName;
-        public void setIceCost()
-        {
-            iceCost = 0.05;
-        }
+        //public void setIceCost()
+        //{
+        //    iceCost = 0.05;
+        //}
         public double getIceCost()
         {
             return iceCost;

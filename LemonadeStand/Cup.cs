@@ -9,12 +9,12 @@ namespace LemonadeStand
     class Cup
 
     {
-        private double cupCost;
+        private double cupCost = .05;
         private string cupName;
-        public void setCupCost()
-        {
-            cupCost = 0.05;
-        }
+        //public void setCupCost()
+        //{
+        //    cupCost = 0.05;
+        //}
         public double getCupCost()
         {
             return cupCost;

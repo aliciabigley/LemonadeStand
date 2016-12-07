@@ -8,15 +8,16 @@ namespace LemonadeStand
 {
     class Inventory
     {
-        List<int> lemons = new List<int>();
-        List<int> sugar = new List<int>();
-        List<int> ice = new List<int>();
-        List<int> cups = new List<int>();
-        public void lemonList(Player store)
+        List<Lemon> lemons = new List<Lemon>();
+        List<Sugar> sugar = new List<Sugar>();
+        List<Ice> ice = new List<Ice>();
+        List<Cup> cups = new List<Cup>();
+        public void lemonList(Player store, double amount)
         {
-            foreach(numberOfLemonsPurchased() ++)
+            for(double i = 0; i < amount; i++)
             {
-                
+                Lemon lemon = new Lemon();
+                lemons.Add(lemon);
             }
         }
         //public void getSugarCount()

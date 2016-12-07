@@ -15,30 +15,30 @@ namespace LemonadeStand
         public void Restock(Player player)
         {
             Console.WriteLine("Do you need anything from the store?\n\n");
-            Console.WriteLine("[Yes] or [No]");
+            Console.WriteLine("[Y] Yes or [N] No");
             string checkToSeeStore = Console.ReadLine().ToLower();
-            if (checkToSeeStore == "no")
+            if (checkToSeeStore == "n")
             {
                 //play game
             }
 
-            else if (checkToSeeStore == "yes")
+            else if (checkToSeeStore == "y")
 
                 Console.WriteLine("What's on your list? [L] for Lemons, [S] for Sugar, [I] for Ice, or [C] for Cups?\n\n");
             string need = Console.ReadLine().ToLower();
             switch (need)
             {
                 case "l":
-                    getLemons();
+                    getLemons(player);
                     break;
                 case "i":
-                    player.setNumberOfIceCubes();
+                    getSugar(player);
                     break;
                 case "s":
-                    player.setNumberOfSugar();
+                    getIce(player);
                     break;
                 case "c":
-                    player.setNumberOfCups();
+                    getCups(player);
                     break;
                 default:
                     Console.WriteLine("Sorry! Try [L] for Lemons, [S] for Sugar, [I] for Ice, or [C] for Cups?");
@@ -67,13 +67,91 @@ namespace LemonadeStand
             player.wallet.checkIfBankrupt(checkOutLemons);
             player.wallet.buyProduct(checkOutLemons);
         }
-        public void getLemons()
+        public void getLemons(Player player)
         {
             numberOfLemonsNeeded();
             numberOfLemonsPurchased();
-            payForLemons(Player player);
+            payForLemons(player);
+        }
+        //sugar
+        public double numberOfSugarNeeded()
+        {
+            Console.WriteLine("Each cup of sugar is .50 cents each.\n\n");
+            Console.WriteLine("How many cups of sugar would you like?\n\n");
+            double sugarNeeded = double.Parse(Console.ReadLine());
+            return sugarNeeded;
+        }
+        public double numberOfSugarPurchased()
+        {
+            Sugar sugar = new Sugar();
+            checkOutSugar = sugar.getSugarCost() * numberOfSugarNeeded();
+            return checkOutSugar;
+        }
+        public void payForSugar(Player player)
+        {
+            player.wallet.checkIfBankrupt(checkOutSugar);
+            player.wallet.buyProduct(checkOutSugar);
+        }
+        public void getSugar(Player player)
+        {
+            numberOfSugarNeeded();
+            numberOfSugarPurchased();
+            payForSugar(player);
+        }
+        //ice
+        public double numberOfIceCubesNeeded()
+        {
+            Console.WriteLine("Ice Cubes are .05 cents each.\n\n");
+            Console.WriteLine("How many ice cubes would you like?\n\n");
+            double iceNeeded = double.Parse(Console.ReadLine());
+            return iceNeeded;
+        }
+
+        public double numberOfIceCubesPurchased()
+        {
+            Ice ice = new Ice();
+            checkOutIceCubes = ice.getIceCost() * numberOfIceCubesNeeded();
+            return checkOutIceCubes;
+        }
+        public void payForIce(Player player)
+        {
+            player.wallet.checkIfBankrupt(checkOutIceCubes);
+            player.wallet.buyProduct(checkOutIceCubes);
+        }
+        public void getIce (Player player)
+        {
+            numberOfIceCubesNeeded();
+            numberOfIceCubesPurchased();
+            payForIce(player);
+        }
+
+        //Cups
+        public double numberOfCupsNeeded()
+        {
+            Console.WriteLine("Each cup is .05 cents each.\n\n");
+            Console.WriteLine("How many cups would you like?\n\n");
+            double cupsNeeded = double.Parse(Console.ReadLine());
+            return cupsNeeded;
+        }
+        public double numberOfCupsPurchased()
+        {
+            Cup cup = new Cup();
+            checkOutCups = cup.getCupCost() * numberOfCupsNeeded();
+            return checkOutCups;
+        }
+        public void payForCups(Player player)
+        {
+            player.wallet.checkIfBankrupt(checkOutCups);
+            player.wallet.buyProduct(checkOutCups);
+        }
+        public void getCups(Player player)
+        {
+            numberOfCupsNeeded();
+            numberOfCupsPurchased();
+            payForCups(player);
         }
     }
+
     //public string continueShoping (Player player)
     //{
     //    Console.WriteLine("You currently have {0} in your wallet. Would you like to buy more stuff?\n\n", (Player.wallet.GetPullMoneyOut()));

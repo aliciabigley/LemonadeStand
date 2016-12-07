@@ -8,7 +8,7 @@ namespace LemonadeStand
 {
    public class Wallet
     {
-       double moneyInWallet;
+       double moneyInWallet = 10.0;
         bool bankrupt;
         double completeTransaction;
         double costOfProduct;
@@ -16,16 +16,16 @@ namespace LemonadeStand
        //double amountInWallet;
 
 
-        public void setPullMoneyOut()
-        {
-            moneyInWallet = 10.00;
-        }
+        //public void setPullMoneyOut()
+        //{
+        //    moneyInWallet = 10.00; //if changed, change in "welcome" too.
+        //}
         public double GetPullMoneyOut()
         {
             return moneyInWallet;
         }
 
-        public void checkIfBankrupt(double CostOfProduct)
+        public void checkIfBankrupt(double CostOfProduct) //bug here
         {
             if (moneyInWallet <= CostOfProduct)
             {
@@ -36,32 +36,8 @@ namespace LemonadeStand
         public void buyProduct(double costOfProduct)
         {
             completeTransaction = (moneyInWallet) - (costOfProduct);
+            Console.WriteLine("Transaction Approved!! ");
         }
-
-        //public double displayAmountInWallet(Player player)
-        //{
-        //    amountInWallet = startUpMoney - player.checkOut();//playerClass; 
- 
-        //}
-        //public void displayAmountInWallet(Player player)
-        //{
-        //    amountInWallet = startUpMoney - player.displayLemonsPurchased();//playerClass; 
-
-        //}
-        //public void displayAmountInWallet(Player player)
-        //{
-        //    amountInWallet = startUpMoney - player.displaySugarPurchased();//playerClass; 
-
-        //}
-        //public void displayAmountInWallet(Player player)
-        //{
-        //    amountInWallet = startUpMoney - player.displayIceCubesPurchased();//playerClass; 
-
-        //}
-        //public void displayAmountInWallet(Player player)
-        //{
-        //    amountInWallet = startUpMoney - player.displayCupsPurchased();//playerClass; 
-
-        //}
     }
 }
+

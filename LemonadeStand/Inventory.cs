@@ -12,14 +12,6 @@ namespace LemonadeStand
         List<Sugar> sugar = new List<Sugar>();
         List<Ice> ice = new List<Ice>();
         List<Cup> cups = new List<Cup>();
-        //public void getInventoryStatus(Player store)
-        //{
-        //    Console.WriteLine("You have the following in inventory:\n\n");
-        //    Console.WriteLine("Lemons {0}\n\n",lemons);
-        //    Console.WriteLine("Cups of Sugar {0}\n\n",sugar);
-        //    Console.WriteLine("Ice Cubes {0}",ice);
-        //    Console.WriteLine("Cups {0}",cups);
-        //}
         public void AddLemons(int NumberOfLemonsNeeded)
         {
             for (int i = 0; i < NumberOfLemonsNeeded; i++)
@@ -28,6 +20,50 @@ namespace LemonadeStand
                 lemons.Add(lemon);
             }
             Console.WriteLine("You currently have {0} lemons", lemons.Count);
+        }
+        public void RemoveLemons(int TakeLemonsOut) //You are here.
+        {
+
+            for (int i = 0; i < TakeLemonsOut; i--);
+        }
+        public void AddSugar(int NumberOfSugarNeeded)
+        {
+            for (int i = 0; i < NumberOfSugarNeeded; i++)
+            {
+                Sugar sugar = new Sugar();
+                this.sugar.Add(sugar);
+            }
+            Console.WriteLine("You currently have {0} cups of Sugar", sugar.Count);
+        }
+        public void AddIce(int NumberOfIceCubesNeeded)
+        {
+            for (int i = 0; i < NumberOfIceCubesNeeded; i++)
+            {
+                Ice ice = new Ice();
+               this. ice.Add(ice);
+            }
+            Console.WriteLine("You currently have {0} ice cubes", ice.Count);
+        }
+        public void AddCups(int NumberOfCupsNeeded)
+        {
+            for (int i = 0; i < NumberOfCupsNeeded; i++)
+            {
+                Cup cup = new Cup();
+                cups.Add(cup);
+            }
+            Console.WriteLine("You currently have {0} cups.", cups.Count);
+        }
+
+
+
+
+        
+public void ShowAllProductInventory()
+        {
+            Console.WriteLine("You currently have {0} lemons", lemons.Count);
+            Console.WriteLine("You currently have {0} cups of sugar", sugar.Count);
+            Console.WriteLine("You currently have {0} ice cubes", ice.Count);
+            Console.WriteLine("You currently have {0} cups.", cups.Count);
         }
     }
 }

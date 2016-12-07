@@ -9,11 +9,11 @@ namespace LemonadeStand
    public class Wallet
     {
        double moneyInWallet = 10.0;
-        bool bankrupt;
-        double completeTransaction;
-        double costOfProduct;
+       bool bankrupt;
+       double completeTransaction;
+       double costOfProduct;
 
-       //double amountInWallet;
+        //double amountInWallet;
 
 
         //public void setPullMoneyOut()
@@ -25,9 +25,9 @@ namespace LemonadeStand
             return moneyInWallet;
         }
 
-        public void checkIfBankrupt(double CostOfProduct) //bug here
+        public void checkIfBankrupt(double CostOfProduct) 
         {
-            if (moneyInWallet <= CostOfProduct)
+            if (moneyInWallet < CostOfProduct)
             {
                 bankrupt = true;
                 Console.WriteLine("Sorry! You don't have enough money in your wallet.");

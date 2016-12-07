@@ -53,6 +53,7 @@ namespace LemonadeStand
             Console.WriteLine("Finally, you will set a the price per cup.");
             Console.WriteLine("Keep in mind that in all businesses you have start up costs and maintance costs. So you don't want to price your lemonade too low or too high.\n\n\n\n");
             Console.WriteLine("You will start with $10.00 in your pocket. Use it wisely!\n\n");
+            Console.Clear();
             //Console.WriteLine("Would you like a game hint?\n\n");
             //Console.WriteLine("[Y] or [N]");
             //string userInput = Console.ReadLine().ToLower();

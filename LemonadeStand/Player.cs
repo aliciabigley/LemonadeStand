@@ -8,12 +8,9 @@ namespace LemonadeStand
 {
     public class Player
     {
-        //double checkOutLemons;
-        //double checkOutIceCubes;
-        //double checkOutSugar;
-        //double checkOutCups;
         public Wallet wallet = new Wallet();
         public Inventory inventory = new Inventory();
+        public Recipe recipe = new Recipe();
     }
 
 }

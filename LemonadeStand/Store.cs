@@ -21,7 +21,7 @@ namespace LemonadeStand
             string checkToSeeStore = Console.ReadLine().ToLower();
             if (checkToSeeStore == "n")
             {
-                //play game
+                player.recipe.ChooseNumberOfPitchers();
             }
 
             else if (checkToSeeStore == "y")
@@ -63,7 +63,6 @@ namespace LemonadeStand
             Lemon lemon = new Lemon();
             checkOutLemons = lemon.getLemonCost() * NumberOfLemonsToBuy; 
             return checkOutLemons;
-
         }
         public void PayForLemons(Player player)
         {
@@ -78,20 +77,9 @@ namespace LemonadeStand
             NumberOfLemonsPurchased(numberOfLemons);
             PayForLemons(player);
             player.inventory.AddLemons(numberOfLemons);
+            Restock(player);
         }
-        //Calling all product inventory
-        //public void GetProductInventory()
-        //{
-        //    int lemonsNeeded = NumberOfLemonsNeeded();
-        //    CreateLemonList(NumberOfLemonsNeeded());
-        //    int sugarNeeded = NumberOfSugarNeeded();
-        //    CreateSugarList(NumberOfSugarNeeded());
-        //    int iceNeeded = NumberOfIceCubesNeeded();
-        //    CreateIceList(NumberOfIceCubesNeeded());
-        //    int cupNeeded = NumberOfCupsNeeded();
-        //    CreateCupList(NumberOfCupsNeeded());
-        //}
-        //sugar
+
         public int NumberOfSugarNeeded()
         {
             Console.WriteLine("Each cup of sugar is .50 cents each.\n\n");
@@ -114,8 +102,12 @@ namespace LemonadeStand
         //Calling Sugar
         public void GetSugar(Player player)
         {
-            NumberOfSugarPurchased(NumberOfSugarNeeded());
+            int numberOfSugar = NumberOfSugarNeeded();
+            NumberOfSugarPurchased(numberOfSugar);
             PayForSugar(player);
+            player.inventory.AddSugar(numberOfSugar);
+            player.inventory.ShowAllProductInventory();
+            Restock(player);
         }
         //ice
         public int NumberOfIceCubesNeeded()
@@ -125,16 +117,7 @@ namespace LemonadeStand
             int iceNeeded = int.Parse(Console.ReadLine());
             return iceNeeded;
         }
-        public void CreateIceList(int NumberOfIceCubesNeeded)
-        {
-            List<Ice> iceCubes = new List<Ice>();
-            for (int i = 0; i < NumberOfIceCubesNeeded; i++)
-            {
-                Ice ice = new Ice();
-                iceCubes.Add(ice);
-                Console.WriteLine("You currently have {0} ice cupbs" ,iceCubes);
-            }
-        }
+
 
         public double NumberOfIceCubesPurchased(int NumberOfIceCubesNeeded)
         {
@@ -150,8 +133,12 @@ namespace LemonadeStand
         //Calling Ice
         public void GetIce (Player player)
         {
-            NumberOfIceCubesPurchased(NumberOfIceCubesNeeded());
+            int numberOfIce = NumberOfIceCubesNeeded();
+            NumberOfIceCubesPurchased(numberOfIce);
             PayForIce(player);
+            player.inventory.AddIce(numberOfIce);
+            player.inventory.ShowAllProductInventory();
+            Restock(player);
         }
 
         //Cups
@@ -161,16 +148,6 @@ namespace LemonadeStand
             Console.WriteLine("How many cups would you like?\n\n");
             int cupsNeeded = int.Parse(Console.ReadLine());
             return cupsNeeded;
-        }
-        public void CreateCupList(int NumberOfCupsNeeded)
-        {
-            List<Cup> cups = new List<Cup>();
-            for (int i = 0; i < NumberOfCupsNeeded; i++)
-            {
-                Cup cup = new Cup();
-                cups.Add(cup);
-                Console.WriteLine("You currently have {0} cups.",cups);
-            }
         }
         public double NumberOfCupsPurchased(int NumberOfCupsNeeded)
         {
@@ -186,8 +163,12 @@ namespace LemonadeStand
         //calling Cups
         public void GetCups(Player player)
         {
-            NumberOfCupsPurchased(NumberOfCupsNeeded());
+            int numberOfCups = NumberOfCupsNeeded();
+            NumberOfCupsPurchased(numberOfCups);
             PayForCups(player);
+            player.inventory.AddCups(numberOfCups);
+            player.inventory.ShowAllProductInventory();
+            Restock(player);
         }
 
     }

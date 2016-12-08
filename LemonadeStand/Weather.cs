@@ -20,13 +20,11 @@ namespace LemonadeStand
         }
         public void TempWeeklyWeather()
         {
-            //Random random = new Random();
             int DailyTemperature = random.Next(0, TemperatureOfWeather.Length);
             temperature = TemperatureOfWeather[DailyTemperature];
         }
         public void ConditionWeeklyWeather()
         {
-            //Random random = new Random();
             int WeatherCondition = random.Next(0, ConditionOfWeather.Length);
             condition = (ConditionOfWeather[WeatherCondition]);
         }

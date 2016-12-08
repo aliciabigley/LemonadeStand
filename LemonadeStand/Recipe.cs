@@ -9,7 +9,7 @@ namespace LemonadeStand
     public class Recipe
     {
         int numberOfPitchers = 1;
-        int checkNumberOfLemons;
+        //int checkNumberOfLemons;
         public int removeLemonsFromInventory;
         public int removeSugarFromInventory;
         public int removeIceFromInventory;

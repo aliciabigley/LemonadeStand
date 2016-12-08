@@ -12,6 +12,7 @@ namespace LemonadeStand
         public Weather weather;
         public Player player;
         public Store store;
+        public Day day;
 
         public Game()
         {
@@ -19,30 +20,35 @@ namespace LemonadeStand
             weather  = new Weather(random);
             player = new Player();
             store = new Store();
+            day = new Day();
 
 
         }
         public void RunGame()
         {
-            DisplayWelcom();
+            DisplayWelcome();
+            ShowClear();
             DisplayRules();
+            ShowClear();
+            day.ChooseGameLenght();
+            ShowClear();
+            weather.WeeklyWeather();
             store.Restock(player);
-
+            player.recipe.PlayRecipe(player);
 
         }
-        public void DisplayWelcom()
+        public void DisplayWelcome()
         {
             Console.WriteLine("Your a buisnessman (or women) at heart and figure you'll try your hand at making as much money as posible over the next few days.\n\n");
-            Console.WriteLine("After hours of brainstorming, you finally settled on runninig a lemonaid stand.\n\n");
+            Console.WriteLine("After hours of brainstorming, you finally settled on runninig a lemonade stand.\n\n");
             Console.WriteLine("please hit 'enter' to continue.");
             Console.ReadLine();
-            Console.WriteLine("Welcome! My name is Alicia. I'm going to be giving you the lowdown on how to run a sucessful lemonade stand.\n\n");
-            Console.Clear();
 
         }
-
+        //switch case here with options that take you to different classes
         public void DisplayRules()
         {
+            Console.WriteLine("Welcome! My name is Alicia. I'm going to be giving you the lowdown on how to run a sucessful lemonade stand.\n\n");
             Console.WriteLine("First thing first. You are about to sell lemonaid in the busist part of Laguna Beach, CA!\n\n");
             Console.WriteLine("If you play your cards right, you can sell tons of lemonade every day.\n\n");
             Console.WriteLine("Every morning you will wake up and check the weather, brush your teeth, comb your hair, and get ready for the day.");
@@ -53,7 +59,8 @@ namespace LemonadeStand
             Console.WriteLine("Finally, you will set a the price per cup.");
             Console.WriteLine("Keep in mind that in all businesses you have start up costs and maintance costs. So you don't want to price your lemonade too low or too high.\n\n\n\n");
             Console.WriteLine("You will start with $10.00 in your pocket. Use it wisely!\n\n");
-            Console.Clear();
+            Console.WriteLine("please hit 'enter' to continue.");
+            Console.ReadLine();
             //Console.WriteLine("Would you like a game hint?\n\n");
             //Console.WriteLine("[Y] or [N]");
             //string userInput = Console.ReadLine().ToLower();
@@ -68,6 +75,10 @@ namespace LemonadeStand
             //{
             //    Console.Clear();
             //}
+        }
+        public void ShowClear()
+        {
+            Console.Clear();
         }
     }
 }

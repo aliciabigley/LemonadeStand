@@ -36,15 +36,15 @@ namespace LemonadeStand
         }
         public void WeeklyWeather()
         {
+            Console.WriteLine("The weekly forecast is:");
             List<string> daysOfWeek = new List<string> { "Monday's", "Tuesday's", "Wednesday's", "Thursday's", "Friday's", "Saturday's", "Sunday's" };
-
             foreach (string day in daysOfWeek)
             {
                 TempWeeklyWeather();
                 ConditionWeeklyWeather();
-                Console.WriteLine(day + " weather is: {0} {1}", temperature, condition);
+                Console.WriteLine(day + " weather is: {0} {1}\n\n", temperature, condition);
             }
-            
+            Console.WriteLine("Remember the weather has a lot to do with amount of lemonade you sell.\n\n");
         }
     }
 }

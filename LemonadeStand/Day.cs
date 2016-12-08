@@ -6,16 +6,13 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Day
+    public class Day
     {
         public string ChooseGameLenght()
         {
             Console.WriteLine("How many days would you like to run your stand? [7] [14]");
             string userInput = Console.ReadLine();
             return userInput;
-            //int cycleNumber;
-            //Int32.TryParse(userInput, out cycleNumber);
-            //return cycleNumber;
         }
         public void DisplayGameLenght()
 

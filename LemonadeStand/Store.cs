@@ -16,6 +16,7 @@ namespace LemonadeStand
         //double lemonNeeded;
         public void Restock(Player player)
         {
+
             Console.WriteLine("Do you need anything from the store?\n\n");
             Console.WriteLine("[Y] Yes or [N] No");
             string checkToSeeStore = Console.ReadLine().ToLower();
@@ -61,7 +62,7 @@ namespace LemonadeStand
         public double NumberOfLemonsPurchased(int NumberOfLemonsToBuy)
         {
             Lemon lemon = new Lemon();
-            checkOutLemons = lemon.getLemonCost() * NumberOfLemonsToBuy; 
+            checkOutLemons = lemon.GetCost() * NumberOfLemonsToBuy; 
             return checkOutLemons;
         }
         public void PayForLemons(Player player)
@@ -69,7 +70,6 @@ namespace LemonadeStand
             player.wallet.checkIfBankrupt(checkOutLemons);
             player.wallet.buyProduct(checkOutLemons);
         }
-
         //Calling Lemons
         public void GetLemons(Player player)
         {
@@ -77,9 +77,10 @@ namespace LemonadeStand
             NumberOfLemonsPurchased(numberOfLemons);
             PayForLemons(player);
             player.inventory.AddLemons(numberOfLemons);
+            Console.WriteLine("\n\n");  
+            //player.inventory.ShowAllProductInventory();
             Restock(player);
         }
-
         public int NumberOfSugarNeeded()
         {
             Console.WriteLine("Each cup of sugar is .50 cents each.\n\n");
@@ -87,11 +88,10 @@ namespace LemonadeStand
             int sugarNeeded = int.Parse(Console.ReadLine());
             return sugarNeeded;
         }
-
         public double NumberOfSugarPurchased(int NumberOfSugarNeeded)
         {
             Sugar sugar = new Sugar();
-            checkOutSugar = sugar.getSugarCost() * NumberOfSugarNeeded;
+            checkOutSugar = sugar.GetCost() * NumberOfSugarNeeded;
             return checkOutSugar;
         }
         public void PayForSugar(Player player)
@@ -106,7 +106,7 @@ namespace LemonadeStand
             NumberOfSugarPurchased(numberOfSugar);
             PayForSugar(player);
             player.inventory.AddSugar(numberOfSugar);
-            player.inventory.ShowAllProductInventory();
+            //player.inventory.ShowAllProductInventory();
             Restock(player);
         }
         //ice
@@ -122,7 +122,7 @@ namespace LemonadeStand
         public double NumberOfIceCubesPurchased(int NumberOfIceCubesNeeded)
         {
             Ice ice = new Ice();
-            checkOutIceCubes = ice.getIceCost() * NumberOfIceCubesNeeded; 
+            checkOutIceCubes = ice.GetCost() * NumberOfIceCubesNeeded; 
             return checkOutIceCubes;
         }
         public void PayForIce(Player player)
@@ -137,7 +137,7 @@ namespace LemonadeStand
             NumberOfIceCubesPurchased(numberOfIce);
             PayForIce(player);
             player.inventory.AddIce(numberOfIce);
-            player.inventory.ShowAllProductInventory();
+            //player.inventory.ShowAllProductInventory();
             Restock(player);
         }
 
@@ -152,7 +152,7 @@ namespace LemonadeStand
         public double NumberOfCupsPurchased(int NumberOfCupsNeeded)
         {
             Cup cup = new Cup();
-            checkOutCups = cup.getCupCost() * NumberOfCupsNeeded;
+            checkOutCups = cup.GetCost() * NumberOfCupsNeeded;
             return checkOutCups;
         }
         public void PayForCups(Player player)
@@ -167,7 +167,7 @@ namespace LemonadeStand
             NumberOfCupsPurchased(numberOfCups);
             PayForCups(player);
             player.inventory.AddCups(numberOfCups);
-            player.inventory.ShowAllProductInventory();
+            //player.inventory.ShowAllProductInventory();
             Restock(player);
         }
 

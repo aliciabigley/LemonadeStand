@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Sugar
+    class Sugar : ICost
     {
         double sugarCost = .50;
         string sugarName;
@@ -14,7 +14,7 @@ namespace LemonadeStand
         //{
         //    sugarCost = 0.50;
         //}
-        public double getSugarCost()
+        public double GetCost()
         {
             return sugarCost;
         }

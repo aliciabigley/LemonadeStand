@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    interface IMixTogether
+    interface ICost
     {
-        void MixLemons();
-    }
+       double GetCost();
+    }   
 }

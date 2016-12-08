@@ -19,12 +19,31 @@ namespace LemonadeStand
                 Lemon lemon = new Lemon();
                 lemons.Add(lemon);
             }
-            Console.WriteLine("You currently have {0} lemons", lemons.Count);
+            Console.WriteLine("You currently have {0} lemons.\n\n", lemons.Count);
         }
-        public void RemoveLemons(int TakeLemonsOut) //You are here.
-        {
+        //public void DoubleCheckLemonInventory(Player player, int checkToSeeLemonCount,)
+        //{
+        //    Console.WriteLine("You have { 0} lemons.", lemons.Count);
+        //    if (int i = 6; (i * recipe.ChooseNumberOfPitchers >= AddLemons)
+        //    {
 
-            for (int i = 0; i < TakeLemonsOut; i--);
+        //    }
+
+        //}
+
+        //public void DoubleCheckLemonInventory(Player player, int numberLemons, ChooseNumberOfPitchers)
+        //{
+        //    for (int i = 6; (i * ChooseNumberOfPitchers >= AddLemons)
+        //    {
+        //        Console.WriteLine("You have enough Lemons");
+        //    }
+        //}
+        public void RemoveLemons(int TakeLemonsOut)
+        {
+            for (int i = 0; i < TakeLemonsOut; i++)
+            {
+                lemons.RemoveAt(0);
+            }
         }
         public void AddSugar(int NumberOfSugarNeeded)
         {
@@ -33,7 +52,14 @@ namespace LemonadeStand
                 Sugar sugar = new Sugar();
                 this.sugar.Add(sugar);
             }
-            Console.WriteLine("You currently have {0} cups of Sugar", sugar.Count);
+            Console.WriteLine("You just bought {0} cups of Sugar.\n\n", sugar.Count);
+        }
+        public void RemoveSugar(int TakeSugarOut)
+        {
+            for (int i = 0; i < TakeSugarOut; i++)
+            {
+                sugar.RemoveAt(0);
+            }
         }
         public void AddIce(int NumberOfIceCubesNeeded)
         {
@@ -42,7 +68,14 @@ namespace LemonadeStand
                 Ice ice = new Ice();
                this. ice.Add(ice);
             }
-            Console.WriteLine("You currently have {0} ice cubes", ice.Count);
+            Console.WriteLine("You currently have {0} ice cubes.\n\n", ice.Count);
+        }
+        public void RemoveIce(int TakeIceOut)
+        {
+            for (int i = 0; i < TakeIceOut; i++)
+            {
+                ice.RemoveAt(0);
+            }
         }
         public void AddCups(int NumberOfCupsNeeded)
         {
@@ -51,19 +84,22 @@ namespace LemonadeStand
                 Cup cup = new Cup();
                 cups.Add(cup);
             }
-            Console.WriteLine("You currently have {0} cups.", cups.Count);
+            Console.WriteLine("You currently have {0} cups.\n\n", cups.Count);
         }
-
-
-
-
-        
-public void ShowAllProductInventory()
+        public void RemoveCup(int TakeCupOut) //You are here
         {
-            Console.WriteLine("You currently have {0} lemons", lemons.Count);
-            Console.WriteLine("You currently have {0} cups of sugar", sugar.Count);
-            Console.WriteLine("You currently have {0} ice cubes", ice.Count);
-            Console.WriteLine("You currently have {0} cups.", cups.Count);
+            for (int i = 0; i < TakeCupOut; i++)
+            {
+                cups.RemoveAt(0);
+            }
         }
+
+        //public void ShowAllProductInventory()
+        //{
+        //    Console.WriteLine("You currently have {0} lemons.\n\n", lemons.Count);
+        //    Console.WriteLine("You currently have {0} cups of sugar.\n\n", sugar.Count);
+        //    Console.WriteLine("You currently have {0} ice cubes.\n\n", ice.Count);
+        //    Console.WriteLine("You currently have {0} cups.\n\n", cups.Count);
+        //}
     }
 }

@@ -17,17 +17,18 @@ namespace LemonadeStand
         public void Restock(Player player)
         {
 
-            Console.WriteLine("Do you need anything from the store?\n\n");
-            Console.WriteLine("[Y] Yes or [N] No");
-            string checkToSeeStore = Console.ReadLine().ToLower();
-            if (checkToSeeStore == "n")
-            {
-                player.recipe.ChooseNumberOfPitchers();
-            }
+            //Console.WriteLine("Do you need anything from the store?\n\n");
+            //Console.WriteLine("[Y] Yes or [N] No");
+            //string checkToSeeStore = Console.ReadLine().ToLower();
+            //if (checkToSeeStore == "n")
+            //{
+            //    player.recipe.ChooseNumberOfPitchers();
+            //}
 
-            else if (checkToSeeStore == "y")
+            //if (checkToSeeStore == "4")
 
-                Console.WriteLine("What's on your list? [L] for Lemons, [S] for Sugar, [I] for Ice, or [C] for Cups?\n\n");
+            Console.WriteLine("What's on your list? [L] for Lemons, [S] for Sugar, [I] for Ice, [C] for Cups, or hit [ENTER] to take you back to the Main Menu. \n\n");
+
             string need = Console.ReadLine().ToLower();
             switch (need)
             {
@@ -43,9 +44,12 @@ namespace LemonadeStand
                 case "c":
                     GetCups(player);
                     break;
+                //case "m":
+                //    GetCups(player);
+                //    break;
                 default:
-                    Console.WriteLine("Sorry! Try [L] for Lemons, [S] for Sugar, [I] for Ice, or [C] for Cups?");
-                    Restock(player);
+                    Console.WriteLine("Sorry! Try [L] for Lemons, [S] for Sugar, [I] for Ice, [C] for Cups, or [M] to take you back to the Main Menu.");
+                    //Restock(player);
                     break;
 
             }
@@ -67,8 +71,16 @@ namespace LemonadeStand
         }
         public void PayForLemons(Player player)
         {
-            player.wallet.checkIfBankrupt(checkOutLemons);
-            player.wallet.buyProduct(checkOutLemons);
+            if (player.wallet.checkIfBankrupt(checkOutLemons))
+            {
+            }
+            else 
+            {
+                player.wallet.buyProduct(checkOutLemons);
+            }
+           
+                    
+            //player.wallet.buyProduct(checkOutLemons);
         }
         //Calling Lemons
         public void GetLemons(Player player)
@@ -96,8 +108,13 @@ namespace LemonadeStand
         }
         public void PayForSugar(Player player)
         {
-            player.wallet.checkIfBankrupt(checkOutSugar);
-            player.wallet.buyProduct(checkOutSugar);
+            if (player.wallet.checkIfBankrupt(checkOutSugar))
+            {
+            }
+            else
+            {
+                player.wallet.buyProduct(checkOutSugar);
+            }
         }
         //Calling Sugar
         public void GetSugar(Player player)
@@ -127,9 +144,15 @@ namespace LemonadeStand
         }
         public void PayForIce(Player player)
         {
-            player.wallet.checkIfBankrupt(checkOutIceCubes);
-            player.wallet.buyProduct(checkOutIceCubes);
+            if (player.wallet.checkIfBankrupt(checkOutIceCubes))
+            {
+            }
+            else
+            {
+                player.wallet.buyProduct(checkOutIceCubes);
+            }
         }
+
         //Calling Ice
         public void GetIce (Player player)
         {
@@ -157,8 +180,13 @@ namespace LemonadeStand
         }
         public void PayForCups(Player player)
         {
-            player.wallet.checkIfBankrupt(checkOutCups);
-            player.wallet.buyProduct(checkOutCups);
+            if (player.wallet.checkIfBankrupt(checkOutCups))
+            {
+            }
+            else
+            {
+                player.wallet.buyProduct(checkOutCups);
+            }
         }
         //calling Cups
         public void GetCups(Player player)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Cup : ICost
+   public class Cup : ICost
 
     {
         private double cupCost = .05;

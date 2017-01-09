@@ -6,20 +6,6 @@
       <body>Get()-Calls all the specific (lemon, cups, sugar, and ice) methods in Store.cs</body>
     </comment>
   </ownedCommentsInternal>
-  <profileInstances>
-    <packageHasProfileInstances Id="7349634b-85ba-4132-9956-d2cf9e3e5ccd">
-      <profileInstance Id="668903f9-bbc3-4bb9-9067-b94114f32ae6" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="ab137f55-36be-4f45-b331-e4fc788631de">
-      <profileInstance Id="c69552e2-8dbe-4182-8b94-f9b9be7d7749" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <logicalClassDesignerModelHasTypes>
       <class Id="867b4cfa-0fc4-4ca9-bfe5-44db8a8994c9" name="Game +" isAbstract="false" isLeaf="false" isActiveClass="false">
@@ -252,13 +238,13 @@
           <property Id="ce9dcf0c-df21-46fb-98ee-f8e3665b4a9d" name="double checkOutLemons" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="3adc5c66-a994-4da1-8607-85962ec7ea48" />
           </property>
-          <property Id="87b70d74-39a0-4aaa-bc49-955cfbdb8157" name="checkOutIceCubes" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="87b70d74-39a0-4aaa-bc49-955cfbdb8157" name="double checkOutIceCubes" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="7c16414f-800a-413f-9e92-3f61fcb5857e" />
           </property>
-          <property Id="504694f3-8b66-4689-bc63-1d81ee64cbae" name="checkOutSugar" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="504694f3-8b66-4689-bc63-1d81ee64cbae" name="double checkOutSugar" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="633f7af9-10c0-4860-a922-53a1a1b4d966" />
           </property>
-          <property Id="6de72313-a8d9-44dd-8887-d07d75a4fdfd" name="checkOutCups" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="6de72313-a8d9-44dd-8887-d07d75a4fdfd" name="double checkOutCups" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="11fc52cf-b525-4241-b86c-914dbd552575" />
           </property>
         </ownedAttributesInternal>
@@ -670,16 +656,16 @@
           <property Id="3303db68-a99c-4abc-8540-e6367798ce29" name="int numberOfPitchers" visibility="Private" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="558226f4-46a7-4737-8cc7-560750342fc0" />
           </property>
-          <property Id="bcc02693-b909-47a2-9277-e623e5c9f3ac" name="int removeSugarFromInventory()" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="bcc02693-b909-47a2-9277-e623e5c9f3ac" name="int removeSugarFromInventory" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="c461ece5-e3fb-4fea-a526-11f566386dd2" />
           </property>
-          <property Id="508afbf6-afc1-4726-ab60-926da008c358" name="int removeLemonFromInventory()" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="508afbf6-afc1-4726-ab60-926da008c358" name="int removeLemonFromInventory" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="e33dcbcd-539c-4808-af03-72ed80dea61e" />
           </property>
-          <property Id="2c75fac4-5c22-4607-ab76-5ad5b3a29a2a" name="int removeCupsFromInventory()" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="2c75fac4-5c22-4607-ab76-5ad5b3a29a2a" name="int removeCupsFromInventory" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="797c1073-c092-4b5a-adcb-10ad444829bb" />
           </property>
-          <property Id="f9e40d9b-8003-49c4-845b-9c283689256f" name="int removeIceFromInventory()" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+          <property Id="f9e40d9b-8003-49c4-845b-9c283689256f" name="int removeIceFromInventory" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <elementDefinition Id="0fb094a3-b76e-4024-952d-8a9112a266c0" />
           </property>
         </ownedAttributesInternal>
@@ -776,5 +762,19 @@
   </packagedElements>
   <package Id="54aa6ee8-358d-4047-a045-81fd1955d3ff" name="LemonadeStandModelingProject">
     <elementDefinition Id="b21df284-4cfb-46c7-a335-a5ee8f84fa57" />
+    <profileInstances>
+      <packageHasProfileInstances Id="7349634b-85ba-4132-9956-d2cf9e3e5ccd">
+        <profileInstance Id="668903f9-bbc3-4bb9-9067-b94114f32ae6" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="ab137f55-36be-4f45-b331-e4fc788631de">
+        <profileInstance Id="c69552e2-8dbe-4182-8b94-f9b9be7d7749" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </logicalClassDesignerModel>

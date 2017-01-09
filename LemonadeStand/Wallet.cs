@@ -20,23 +20,26 @@ namespace LemonadeStand
         //{
         //    moneyInWallet = 10.00; //if changed, change in "welcome" too.
         //}
-        public double GetPullMoneyOut()
+        public void DisplayBalance()
         {
-            return moneyInWallet;
+            Console.WriteLine(moneyInWallet); 
         }
 
-        public void checkIfBankrupt(double CostOfProduct) 
+        public bool checkIfBankrupt(double CostOfProduct) 
         {
             if (moneyInWallet < CostOfProduct)
             {
                 bankrupt = true;
                 Console.WriteLine("Sorry! You don't have enough money in your wallet.");
             }
+            return bankrupt;
         }
-        public void buyProduct(double costOfProduct)
+        public double buyProduct(double costOfProduct)
         {
-            completeTransaction = (moneyInWallet) - (costOfProduct);
-            Console.WriteLine("Transaction Approved!! ");
+            completeTransaction = moneyInWallet - costOfProduct;
+            Console.WriteLine("Transaction Approved!!");
+            moneyInWallet = completeTransaction;
+            return moneyInWallet;
         }
     }
 }

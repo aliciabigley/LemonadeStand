@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Lemon : ICost
+    public class Lemon : ICost
     {
         private double lemonCost = .10;
         private string lemonName;

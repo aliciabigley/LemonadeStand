@@ -579,7 +579,7 @@
             isComposite="false" />
           <property
             Id="7c16414f-800a-413f-9e92-3f61fcb5857e"
-            name="checkOutIceCubes"
+            name="double checkOutIceCubes"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -590,7 +590,7 @@
             isComposite="false" />
           <property
             Id="633f7af9-10c0-4860-a922-53a1a1b4d966"
-            name="checkOutSugar"
+            name="double checkOutSugar"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -601,7 +601,7 @@
             isComposite="false" />
           <property
             Id="11fc52cf-b525-4241-b86c-914dbd552575"
-            name="checkOutCups"
+            name="double checkOutCups"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1516,7 +1516,7 @@
             isComposite="false" />
           <property
             Id="c461ece5-e3fb-4fea-a526-11f566386dd2"
-            name="int removeSugarFromInventory()"
+            name="int removeSugarFromInventory"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1527,7 +1527,7 @@
             isComposite="false" />
           <property
             Id="e33dcbcd-539c-4808-af03-72ed80dea61e"
-            name="int removeLemonFromInventory()"
+            name="int removeLemonFromInventory"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1538,7 +1538,7 @@
             isComposite="false" />
           <property
             Id="797c1073-c092-4b5a-adcb-10ad444829bb"
-            name="int removeCupsFromInventory()"
+            name="int removeCupsFromInventory"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -1549,7 +1549,7 @@
             isComposite="false" />
           <property
             Id="0fb094a3-b76e-4024-952d-8a9112a266c0"
-            name="int removeIceFromInventory()"
+            name="int removeIceFromInventory"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"

@@ -8,7 +8,7 @@ namespace LemonadeStand
 {
     public class Recipe
     {
-        int numberOfPitchers = 1;
+        public int numberOfPitchers;
         //int checkNumberOfLemons;
         public int removeLemonsFromInventory;
         public int removeSugarFromInventory;
@@ -18,11 +18,15 @@ namespace LemonadeStand
         {
             Console.WriteLine("We have the perfect recipe passed down from your great, great, great grandma Rosie!\n\n");
             Console.WriteLine("It contains 6 Lemons, 7 cups of sugar, 25 ice cubes making 10 cups of lemonade.\n\n");
+            Console.WriteLine("Things to keep in mind:");
+            Console.WriteLine("1. The weather (the hotter it is the more cups you may sell)");
+            Console.WriteLine("2. You can not save unused lemonade you did not sell the previous day.\n\n");
             Console.WriteLine("How many pitchers do you want to make?");
             int numberOfPitchers = int.Parse(Console.ReadLine());
+            Console.WriteLine("You now have {0} cups of lemonade!!", (numberOfPitchers*10));
             return numberOfPitchers;
         }
-        public int TakeLemonsOut(Player player)
+        public int TakeLemonsOut(Player player)  //fix: do not allow negative numbers.
         {
             removeLemonsFromInventory = (numberOfPitchers * 6);
             return removeLemonsFromInventory;
@@ -44,6 +48,7 @@ namespace LemonadeStand
         }
         public void PlayRecipe(Player player)
         {
+            ChooseNumberOfPitchers();
             TakeLemonsOut(player);
             TakeSugarOut(player);
             TakeIceOut(player);

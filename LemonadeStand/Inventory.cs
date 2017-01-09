@@ -86,7 +86,7 @@ namespace LemonadeStand
             }
             Console.WriteLine("You currently have {0} cups.\n\n", cups.Count);
         }
-        public void RemoveCup(int TakeCupOut) //You are here
+        public void RemoveCup(int TakeCupOut) 
         {
             for (int i = 0; i < TakeCupOut; i++)
             {
@@ -94,12 +94,13 @@ namespace LemonadeStand
             }
         }
 
-        //public void ShowAllProductInventory()
-        //{
-        //    Console.WriteLine("You currently have {0} lemons.\n\n", lemons.Count);
-        //    Console.WriteLine("You currently have {0} cups of sugar.\n\n", sugar.Count);
-        //    Console.WriteLine("You currently have {0} ice cubes.\n\n", ice.Count);
-        //    Console.WriteLine("You currently have {0} cups.\n\n", cups.Count);
-        //}
+        public void ShowAllProductInventory()
+        {
+            Console.WriteLine("You currently have {0} lemons.\n\n", lemons.Count);
+            Console.WriteLine("You currently have {0} cups of sugar.\n\n", sugar.Count);
+            Console.WriteLine("You currently have {0} ice cubes.\n\n", ice.Count);
+            Console.WriteLine("You currently have {0} cups.\n\n", cups.Count);
+           
+        }
     }
 }

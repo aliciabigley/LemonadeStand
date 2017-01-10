@@ -17,16 +17,6 @@ namespace LemonadeStand
         public void Restock(Player player)
         {
 
-            //Console.WriteLine("Do you need anything from the store?\n\n");
-            //Console.WriteLine("[Y] Yes or [N] No");
-            //string checkToSeeStore = Console.ReadLine().ToLower();
-            //if (checkToSeeStore == "n")
-            //{
-            //    player.recipe.ChooseNumberOfPitchers();
-            //}
-
-            //if (checkToSeeStore == "4")
-
             Console.WriteLine("What's on your list? [L] for Lemons, [S] for Sugar, [I] for Ice, [C] for Cups, or hit [ENTER] to take you back to the Main Menu. \n\n");
 
             string need = Console.ReadLine().ToLower();
@@ -45,10 +35,10 @@ namespace LemonadeStand
                     GetCups(player);
                     break;
                 //case "m":
-                //    GetCups(player);
+                //    
                 //    break;
                 default:
-                    Console.WriteLine("Sorry! Try [L] for Lemons, [S] for Sugar, [I] for Ice, [C] for Cups, or [M] to take you back to the Main Menu.");
+                    //Console.WriteLine("Sorry! Try [L] for Lemons, [S] for Sugar, [I] for Ice, [C] for Cups, or [ENTER] to take you back to the Main Menu.");
                     //Restock(player);
                     break;
 
@@ -95,7 +85,7 @@ namespace LemonadeStand
         }
         public int NumberOfSugarNeeded()
         {
-            Console.WriteLine("Each cup of sugar is .50 cents each.\n\n");
+            Console.WriteLine("Each cup of sugar is .35 cents each.\n\n");
             Console.WriteLine("How many cups of sugar would you like?\n\n");
             int sugarNeeded = int.Parse(Console.ReadLine());
             return sugarNeeded;

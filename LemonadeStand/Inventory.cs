@@ -21,23 +21,7 @@ namespace LemonadeStand
             }
             Console.WriteLine("You currently have {0} lemons.\n\n", lemons.Count);
         }
-        //public void DoubleCheckLemonInventory(Player player, int checkToSeeLemonCount,)
-        //{
-        //    Console.WriteLine("You have { 0} lemons.", lemons.Count);
-        //    if (int i = 6; (i * recipe.ChooseNumberOfPitchers >= AddLemons)
-        //    {
-
-        //    }
-
-        //}
-
-        //public void DoubleCheckLemonInventory(Player player, int numberLemons, ChooseNumberOfPitchers)
-        //{
-        //    for (int i = 6; (i * ChooseNumberOfPitchers >= AddLemons)
-        //    {
-        //        Console.WriteLine("You have enough Lemons");
-        //    }
-        //}
+        
         public void RemoveLemons(int TakeLemonsOut)
         {
             for (int i = 0; i < TakeLemonsOut; i++)
@@ -93,7 +77,6 @@ namespace LemonadeStand
                 cups.RemoveAt(0);
             }
         }
-
         public void ShowAllProductInventory()
         {
             Console.WriteLine("You currently have {0} lemons.\n\n", lemons.Count);

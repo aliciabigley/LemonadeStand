@@ -8,7 +8,7 @@ namespace LemonadeStand
 {
     public class Sugar : ICost
     {
-        double sugarCost = .50;
+        double sugarCost = .35;
         string sugarName;
         //public void setSugarCost()
         //{

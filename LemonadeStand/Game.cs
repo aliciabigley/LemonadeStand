@@ -26,6 +26,7 @@ namespace LemonadeStand
         }
         public void RunGame()
         {
+            day.CreateCustomers();
             DisplayWelcome();
             //DisplayRules();
             //day.ChooseGameLenght();
@@ -42,8 +43,13 @@ namespace LemonadeStand
             Console.WriteLine("please hit 'enter' to go to the main meun.");
             Console.ReadLine();
             Console.Clear();
+            MakeWeather();
             MainMenu();
 
+        }
+        public void MakeWeather()
+        {
+            day.weather.CreateWeather();
         }
         public void MainMenu()
         {

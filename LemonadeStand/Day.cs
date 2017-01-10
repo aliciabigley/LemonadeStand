@@ -11,10 +11,11 @@ namespace LemonadeStand
         public Weather weather;
         public Customers customer;
         Random random;
-
+        //List<Customers> customers = new List<Customers>();
         int userInput;
-        double willingToPay;
+        public double willingToPay;
         int cupsToBeBought;
+        List<Customers> customers = new List<Customers>();
         List<double> costCustomersWillPay = new List<double> { .25, 1.00, .75, .90, 1.25 };
         List<int> cupsCustomersWillBuy = new List<int> { 1, 2, 1, 3, 1 };
         public Day(Random random)
@@ -27,24 +28,31 @@ namespace LemonadeStand
             Console.WriteLine("How many days would you like to run your stand? [7] [14]");
             int userInput = int.Parse(Console.ReadLine());
             this.userInput = userInput;
-            return this.userInput;
+            return this.userInput; 
         }
         public void DeterminGameLenght() //move to game class
         {
             
             if (userInput == 7)
             {
-                for (int i = 0; i > 7; i++)
+                for (int i = 0; i < 7; i++)
                 {
-                    //run game here
+                    for (int j = 1; j < 1; j++)
+                    {
+                        //run play day here
+                    }
                 }
             }
             if (userInput == 14)
-
-                for (int i = 0; i > 14; i++)
+            {
+                for (int i = 0; i < 14; i++)
                 {
-                    //run game here
+                    for (int j = 1; j < 1; j++)
+                    {
+                        //run play day here
+                    }
                 }
+            }
         }
         //public void Displayweather()
         //{
@@ -64,16 +72,23 @@ namespace LemonadeStand
             return cupsToBeBought;
         }
 
-        public void CustomerType()
+        public void CreateCustomers()
         {
-
-            for (int i = 0; i < 50; i++) //Should 50 be here or should I put in number on pitchers x 10?
+            
+            for (int i = 0; i < 50; i++)
             {
-                Customers customer = new Customers();
-                //customer.Insert(costCustomersWillPay);
-                //customer.Add(cupsToBeBought);
+                Customers customer = new Customers();  //creates multiple customers
+                CustomersWillingnessToBuy(); // number of cups to be purchase if price is met 
+                PayingCustomers(); //at which price will the customer buy a cup
+                weather.TempWeather(); //if weather is ___ temp, customer buys 
+                
+                //customers.Add(weather.temperature);
+                //customers.Add(willingToPay);        
+                //customers.Add(cupsToBeBought)
+                customers.Add(customer);
             }
-
+             
+            //return customers;
         }
        
 

@@ -9,7 +9,7 @@ namespace LemonadeStand
     public class Game
     {
         public Random random;
-        public Weather weather;
+        //public Weather weather;
         public Player player;
         public Store store;
         public Day day;
@@ -17,10 +17,10 @@ namespace LemonadeStand
         public Game()
         {
             random = new Random();
-            weather  = new Weather(random);
+            //weather  = new Weather(random);
             player = new Player();
             store = new Store();
-            day = new Day();
+            day = new Day(random);
 
 
         }
@@ -58,15 +58,17 @@ namespace LemonadeStand
                     DisplayRules();
 
                     break;
+
                     //Weather- make sure it doesn't regenerate weather everytime you select weather
                 case "2":
                     Console.Clear();
-                    weather.WeeklyWeather();
+                    day.weather.DisplayWeather();
                     Console.WriteLine("please hit 'enter' to go to the main meun.");
                     Console.ReadLine();
                     Console.Clear();
                     MainMenu();
                     break;
+
                     //Wallet
                 case "3":
                     Console.Clear();
@@ -75,6 +77,7 @@ namespace LemonadeStand
                     Console.Clear();
                     MainMenu();
                     break;
+
                     //store
                 case "4":
                     Console.Clear();
@@ -83,6 +86,7 @@ namespace LemonadeStand
                     Console.Clear();
                     MainMenu();
                     break;
+
                     //inventory- show inventory
                 case "5":
                     Console.Clear();
@@ -101,6 +105,7 @@ namespace LemonadeStand
                     Console.Clear();
                     MainMenu();
                     break;
+
                     //play game- loop which reps the amount of days you want to play
                     //set price of cup of lemonade
                     // make customers

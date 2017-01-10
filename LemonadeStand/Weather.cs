@@ -28,23 +28,27 @@ namespace LemonadeStand
             int WeatherCondition = random.Next(0, ConditionOfWeather.Length);
             condition = (ConditionOfWeather[WeatherCondition]);
         }
-        public void DailyWeather()
-        {
-            Console.WriteLine("Today's weather is: {0} {1}", temperature, condition);
-        }
+        //public void DailyWeather()
+        //{
+        //    Console.WriteLine("Today's weather is: {0} {1}", temperature, condition);
+        //}
         public void WeeklyWeather()
         {
-            Console.WriteLine("The weekly weather is:");
-            List<string> daysOfWeek = new List<string> { "Monday's", "Tuesday's", "Wednesday's", "Thursday's", "Friday's", "Saturday's", "Sunday's" };
-            foreach (string day in daysOfWeek)
+            //Console.WriteLine("The weekly weather is:");
+            List<string> weatherForcase = new List<string> { "Today's", "Tomorrow's " };
+            foreach (string day in weatherForcase)
             {
                 TempWeeklyWeather();
                 ConditionWeeklyWeather();
                 Console.WriteLine(day + " weather is: {0} and {1}\n\n", temperature, condition);
-                
             }
-            return;
-            Console.WriteLine("Remember the weather has a lot to do with amount of lemonade you sell.\n\n");
+            
+            //return;
+            //Console.WriteLine("Remember the weather has a lot to do with amount of lemonade you sell.\n\n");
+        }
+        public void DisplayWeather()
+        {
+            Console.WriteLine("Today's weather is: {0}\n\nTomrrow's weather is:{1}\n\n", temperature, condition);
         }
     }
 }

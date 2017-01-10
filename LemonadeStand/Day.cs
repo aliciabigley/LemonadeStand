@@ -30,16 +30,26 @@ namespace LemonadeStand
             this.userInput = userInput;
             return this.userInput; 
         }
-        public void DeterminGameLenght() //move to game class
+        public double PriceOfCup()
+        {
+            Console.WriteLine("What would you like to set the price for 1 cup of lemonade?");
+            double pricePerCup = double.Parse(Console.ReadLine());
+            return pricePerCup;
+
+        }
+        public void DeterminedGameLenght() //move to game class
         {
             
             if (userInput == 7)
             {
                 for (int i = 0; i < 7; i++)
                 {
+                    
                     for (int j = 1; j < 1; j++)
                     {
+                        PriceOfCup();
                         //run play day here
+
                     }
                 }
             }
@@ -49,6 +59,7 @@ namespace LemonadeStand
                 {
                     for (int j = 1; j < 1; j++)
                     {
+                        PriceOfCup();
                         //run play day here
                     }
                 }
@@ -74,17 +85,11 @@ namespace LemonadeStand
 
         public void CreateCustomers()
         {
-            
             for (int i = 0; i < 50; i++)
-            {
-                Customers customer = new Customers();  //creates multiple customers
-                CustomersWillingnessToBuy(); // number of cups to be purchase if price is met 
-                PayingCustomers(); //at which price will the customer buy a cup
-                weather.TempWeather(); //if weather is ___ temp, customer buys 
-                
-                //customers.Add(weather.temperature);
-                //customers.Add(willingToPay);        
-                //customers.Add(cupsToBeBought)
+            {                
+                int numberOfCups = CustomersWillingnessToBuy(); // number of cups to be purchase if price is met 
+                double amountToPay = PayingCustomers(); //at which price will the customer buy a cup
+                Customers customer = new Customers(amountToPay, numberOfCups);  //creates multiple customers
                 customers.Add(customer);
             }
              

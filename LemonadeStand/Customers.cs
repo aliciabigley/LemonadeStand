@@ -8,11 +8,26 @@ namespace LemonadeStand
 {
    public class Customers
     {
-        double percent= 100; 
+        Random random;
+        double percent= 100;
+        public double willPayMax;
+        public int numberOfCupsToBuy;
+        double chanceToBuy;
+        int randomValue;
         double tempProbability;
         double conditionProbability;
         double costProbability;
-       
+        bool buy;
+
+        public Customers()
+        {
+            this.random = random;
+        }
+        public Customers(double WillPayMax, int NumberOfCupsToBuy)
+        {
+            willPayMax = WillPayMax;
+            numberOfCupsToBuy = NumberOfCupsToBuy;
+        }
         public void ChanceToBuyTemp(Weather weather)
         {
             if (weather.temperature <= 70)
@@ -61,14 +76,33 @@ namespace LemonadeStand
             }
         }
 
-        public void WillBuy()
+        public double WillBuy()
         {
             List<double> actualChanceToBuy = new List<double>();
             actualChanceToBuy.Add(tempProbability);
             actualChanceToBuy.Add(conditionProbability);
             actualChanceToBuy.Add(costProbability);
-            actualChanceToBuy.Average();
+            actualChanceToBuy.Average();//round
+            return chanceToBuy;
         }
+
+        public int RandomNumber()
+        {
+            return randomValue = random.Next(1, 100);            
+        }
+
+        public void CustomerBuysLemonade()
+        {
+            if (chanceToBuy >= randomValue)
+            {
+                buy = false;
+            }
+            else
+            {
+                buy = true;
+            }
+        }
+
         //List<Customers> customers = new List<Customers>();
         //Random random;
         //public double willingToPay;
@@ -77,7 +111,9 @@ namespace LemonadeStand
         //List<int> cupsCustomersWillBuy = new List<int> { 1, 2, 1, 3, 1 };
         // double[] costCustomersWillPay = new double[] { .25, 1.00, .75, .90, 1.25 };
         //public int[] cupsCustomersWillBuy = new int[] { 1, 2, 1, 3, 1 };
-
+        //random number generator
+        //if random < chance to buy = fasle
+        //chance to buy >= true
 
 
     }

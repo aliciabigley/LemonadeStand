@@ -54,7 +54,7 @@ namespace LemonadeStand
         public void MainMenu()
         {
             Console.WriteLine("Please type in the number of the menu item you would like to select.");
-            Console.WriteLine("1: Rules\n\n2: Weather\n\n3: Check Wallet\n\n4: Run to the store\n\n5: Check inventory\n\n6: Check recipe, make Lemonade and set price.\n\n7: Play Game");
+            Console.WriteLine("1: Rules\n\n2: Weather\n\n3: Check Wallet\n\n4: Run to the store\n\n5: Check inventory\n\n6: Check recipe and make Lemonade.\n\n7:  Set price and play game");
             string value = Console.ReadLine();
             switch (value)
             {
@@ -119,9 +119,10 @@ namespace LemonadeStand
                 case "7":
                     Console.Clear();
                     day.ChooseGameLenght();
+                    day.DeterminedGameLenght();
+                    RestartGame();
                     Console.ReadLine();
                     Console.Clear();
-                    MainMenu();
                     break;
                     //show profit or loss for the week
 
@@ -130,8 +131,7 @@ namespace LemonadeStand
                     MainMenu();
                     break;
             }
-
-        }
+        } 
         public void DisplayRules()
         {
             Console.WriteLine("Welcome! My name is Alicia. I'm will be giving you the lowdown on how to run a sucessful lemonade stand.\n\n");
@@ -148,6 +148,24 @@ namespace LemonadeStand
             Console.ReadLine();
             Console.Clear();
             MainMenu();
+        }
+        public void RestartGame()
+        {
+            Console.WriteLine("Would you like to replay the game? [Y] or [N]");
+            string answer = Console.ReadLine().ToUpper();
+            switch (answer)
+            {
+                case "Y":
+                    DisplayWelcome();
+                    break;
+                case "N":
+                    Environment.Exit(0);
+                    break;
+                default:
+                    Console.WriteLine("Sorry, that we don't have an option for that.\n\n");
+                    break;
+
+            }
         }
     }
 }

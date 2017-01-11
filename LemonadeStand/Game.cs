@@ -13,6 +13,7 @@ namespace LemonadeStand
         public Player player;
         public Store store;
         public Day day;
+        public int randomValue;
 
         public Game()
         {
@@ -27,27 +28,20 @@ namespace LemonadeStand
         public void RunGame()
         {
             day.CreateCustomers();
+            RandomNumber();
             DisplayWelcome();
             day.SellLemonade(player);
-            
-            //DisplayRules();
-            //day.ChooseGameLenght();
-            //weather.WeeklyWeather();
-            //store.Restock(player);
-            //player.recipe.PlayRecipe(player);
-
         }
         public void DisplayWelcome()
         {
-            Console.WriteLine("Your a buisnessman (or women) at heart and figure you'll try your hand at making as much money as possible over the next few days.\n\n");
-            Console.WriteLine("After hours of brainstorming, you finally settle on runninig a lemonade stand.\n\n");
+            Console.WriteLine("Your a buisnessman (or woman) at heart and figure you'll try your hand at making as much money as possible over the next 7 days.\n\n");
+            Console.WriteLine("After hours of brainstorming, you finally settle on running a lemonade stand.\n\n");
             Console.WriteLine("You scrounged up $10.00 and will use this money to purchase ingredients from the store.");
-            Console.WriteLine("please hit 'enter' to go to the main meun.");
+            Console.WriteLine("Please hit 'enter' to go to the main menu.");
             Console.ReadLine();
             Console.Clear();
             MakeWeather();
             MainMenu();
-
         }
         public void MakeWeather()
         {
@@ -64,17 +58,15 @@ namespace LemonadeStand
                 case "1":
                     Console.Clear();
                     DisplayRules();
-
                     break;
 
-                    //Weather- make sure it doesn't regenerate weather everytime you select weather
+                    //Weather
                 case "2":
                     Console.Clear();
                     day.weather.DisplayTodaysWeather();
                     day.weather.CreateForecastWeather();
                     Console.WriteLine("please hit 'enter' to go to the main meun.");
                     Console.ReadLine();
-
                     Console.Clear();
                     MainMenu();
                     break;
@@ -97,7 +89,7 @@ namespace LemonadeStand
                     MainMenu();
                     break;
 
-                    //inventory- show inventory
+                    //inventory
                 case "5":
                     Console.Clear();
                     player.inventory.ShowAllProductInventory();
@@ -106,11 +98,12 @@ namespace LemonadeStand
                     MainMenu();
                     break;
 
-                    //pitchers- show how many items you need for a pitcher
+                    //pitchers
                 case "6":
                     Console.Clear();
-                    player.recipe.PlayRecipe(player);
-                    //player.recipe.ChooseNumberOfPitchers();
+                    player.inventory.ShowAllProductInventory();
+                    player.recipe.ChooseRecipe();
+                    player.inventory.RemoveItemAfterLemonadeWasMade(player);
                     Console.ReadLine();
                     Console.Clear();
                     MainMenu();
@@ -122,14 +115,18 @@ namespace LemonadeStand
                     //each day show profit or loss
                 case "7":
                     Console.Clear();
-                    day.ChooseGameLenght();
-                    day.DeterminedGameLenght();
-                    RestartGame();
+                    day.PriceOfCup();
+                    for(int i = 0; i < day.customers.Count; i++)
+                    {
+                        day.customers[i].DeterminesCustomerBuys(day.weather, day, randomValue);
+                    }
+                    day.SellLemonade(player);
+                    //RestartGame();
                     Console.ReadLine();
+                    MainMenu();
                     Console.Clear();
                     break;
                     //show profit or loss for the week
-
                 default:
                     Console.WriteLine("Sorry, that we don't have an option for that.\n\n");
                     MainMenu();
@@ -170,6 +167,10 @@ namespace LemonadeStand
                     break;
 
             }
+        }
+        public int RandomNumber()
+        {
+            return randomValue = random.Next(1, 100);
         }
     }
 }

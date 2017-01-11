@@ -10,30 +10,29 @@ namespace LemonadeStand
     {
         Random random;
         double percent= 100;
-        public double willPayMax;
         public int numberOfCupsToBuy;
         double chanceToBuy;
-        int randomValue;
-        double tempProbability;
+        double temperatureProbability;
         double conditionProbability;
         double costProbability;
+        public double willPayMax;
         public bool buy;
 
         public Customers(double WillPayMax, int NumberOfCupsToBuy)
         {
             willPayMax = WillPayMax;
             numberOfCupsToBuy = NumberOfCupsToBuy;
-            this.random = random;
+            
         }
-        public void ChanceToBuyTemp(Weather weather)
+        public void ChanceToBuyTemperature(Weather weather)
         {
             if (weather.temperature <= 70)
             {
-                tempProbability=percent * .15;
+                temperatureProbability=percent * .15;
             }
             else if (weather.temperature >= 80)
             {
-                tempProbability = percent * .50;
+                temperatureProbability = percent * .50;
             }
         }
         public void ChanceToBuyCondtion(Weather weather)
@@ -57,7 +56,6 @@ namespace LemonadeStand
             {
                 costProbability = percent * .100;
             }
-
             else if (day.willingToPay == .75)
             {
                 costProbability = percent * .87;
@@ -75,21 +73,18 @@ namespace LemonadeStand
         public double WillBuy()
         {
             List<double> actualChanceToBuy = new List<double>();
-            actualChanceToBuy.Add(tempProbability);
+            actualChanceToBuy.Add(temperatureProbability);
             actualChanceToBuy.Add(conditionProbability);
             actualChanceToBuy.Add(costProbability);
-            actualChanceToBuy.Average();//round
-            return chanceToBuy;
+            double chanceTobuy = actualChanceToBuy.Average();//round
+            this.chanceToBuy = chanceTobuy;
+            return this.chanceToBuy;
         }
 
-        public int RandomNumber()
+        public bool CustomerBuysLemonade(int randomValue)
         {
-            return randomValue = random.Next(1, 100);            
-        }
-
-        public void CustomerBuysLemonade()
-        {
-            if (chanceToBuy >= randomValue)
+            int value = randomValue;
+            if (chanceToBuy >= value)
             {
                 buy = false;
             }
@@ -97,28 +92,14 @@ namespace LemonadeStand
             {
                 buy = true;
             }
+            return this.buy;
         }
-        public void DeterminesCustomerBuys(Weather weather, Day day)
+        public void DeterminesCustomerBuys(Weather weather, Day day, int randomValue) // should I run this prior to RunGame?
         {
-            ChanceToBuyTemp(weather);
+            ChanceToBuyTemperature(weather);
             ChanceToBuyCondtion(weather);
             ChanceToBuyCost(day);
-            RandomNumber();
-            CustomerBuysLemonade();
+            CustomerBuysLemonade(randomValue);
         }
-
-        //List<Customers> customers = new List<Customers>();
-        //Random random;
-        //public double willingToPay;
-        //public int cupsToBeBought;
-        //List<double> costCustomersWillPay = new List<double> { .25, 1.00, .75, .90, 1.25 };
-        //List<int> cupsCustomersWillBuy = new List<int> { 1, 2, 1, 3, 1 };
-        // double[] costCustomersWillPay = new double[] { .25, 1.00, .75, .90, 1.25 };
-        //public int[] cupsCustomersWillBuy = new int[] { 1, 2, 1, 3, 1 };
-        //random number generator
-        //if random < chance to buy = fasle
-        //chance to buy >= true
-
-
     }
 }

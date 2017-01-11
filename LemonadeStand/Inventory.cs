@@ -22,9 +22,10 @@ namespace LemonadeStand
             Console.WriteLine("You currently have {0} lemons.\n\n", lemons.Count);
         }
         
-        public void RemoveLemons(int TakeLemonsOut)
+        public void RemoveLemons(Player player)
         {
-            for (int i = 0; i < TakeLemonsOut; i++)
+            int lemonsToRemove = player.recipe.TakeLemonsOut();
+            for (int i = 0; i < lemonsToRemove; i++)
             {
                 lemons.RemoveAt(0);
             }
@@ -38,9 +39,10 @@ namespace LemonadeStand
             }
             Console.WriteLine("You just bought {0} cups of Sugar.\n\n", sugar.Count);
         }
-        public void RemoveSugar(int TakeSugarOut)
+        public void RemoveSugar(Player player)
         {
-            for (int i = 0; i < TakeSugarOut; i++)
+            int sugarToRemove = player.recipe.TakeSugarOut();
+            for (int i = 0; i < sugarToRemove; i++)
             {
                 sugar.RemoveAt(0);
             }
@@ -54,9 +56,10 @@ namespace LemonadeStand
             }
             Console.WriteLine("You currently have {0} ice cubes.\n\n", ice.Count);
         }
-        public void RemoveIce(int TakeIceOut)
+        public void RemoveIce(Player player)
         {
-            for (int i = 0; i < TakeIceOut; i++)
+            int iceToRemove = player.recipe.TakeIceOut();
+            for (int i = 0; i < iceToRemove; i++)
             {
                 ice.RemoveAt(0);
             }
@@ -70,9 +73,10 @@ namespace LemonadeStand
             }
             Console.WriteLine("You currently have {0} cups.\n\n", cups.Count);
         }
-        public void RemoveCup(int TakeCupOut) 
+        public void RemoveCups(Player player) 
         {
-            for (int i = 0; i < TakeCupOut; i++)
+            int removeCups = player.recipe.TakeCupsOut();
+            for (int i = 0; i < removeCups; i++)
             {
                 cups.RemoveAt(0);
             }
@@ -83,7 +87,13 @@ namespace LemonadeStand
             Console.WriteLine("You currently have {0} cups of sugar.\n\n", sugar.Count);
             Console.WriteLine("You currently have {0} ice cubes.\n\n", ice.Count);
             Console.WriteLine("You currently have {0} cups.\n\n", cups.Count);
-           
+        }
+        public void RemoveItemAfterLemonadeWasMade(Player player)
+        {
+            RemoveLemons(player);
+            RemoveSugar(player);
+            RemoveIce(player);
+            RemoveCups(player);
         }
     }
 }

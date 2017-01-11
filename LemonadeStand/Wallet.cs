@@ -12,14 +12,6 @@ namespace LemonadeStand
        bool bankrupt;
        double completeTransaction;
        double costOfProduct;
-
-        //double amountInWallet;
-
-
-        //public void setPullMoneyOut()
-        //{
-        //    moneyInWallet = 10.00; //if changed, change in "welcome" too.
-        //}
         public void DisplayBalance()
         {
             Console.WriteLine(moneyInWallet); 

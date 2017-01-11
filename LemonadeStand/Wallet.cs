@@ -8,7 +8,7 @@ namespace LemonadeStand
 {
    public class Wallet
     {
-       double moneyInWallet = 10.0;
+       public double moneyInWallet = 10.0;
        bool bankrupt;
        double completeTransaction;
        double costOfProduct;
@@ -41,6 +41,7 @@ namespace LemonadeStand
             moneyInWallet = completeTransaction;
             return moneyInWallet;
         }
+        
     }
 }
 

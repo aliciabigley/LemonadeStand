@@ -10,6 +10,8 @@ namespace LemonadeStand
     {
         public int temperature;
         public string condition;
+        public int forecastTemperature;
+        public string forecastCondition;
         Random random;
         //string dailyWeather;
         public int[] TemperatureOfWeather = new int[] { 60, 70, 80, 90, 100 };
@@ -18,12 +20,12 @@ namespace LemonadeStand
         {
             this.random = random;
         }
-        public void TempWeather()
+        public void DailyTemperature()
         {
             int DailyTemperature = random.Next(0, TemperatureOfWeather.Length);
             temperature = TemperatureOfWeather[DailyTemperature];
         }
-        public void ConditionWeather()
+        public void DailyCondition()
         {
             int WeatherCondition = random.Next(0, ConditionOfWeather.Length);
             condition = (ConditionOfWeather[WeatherCondition]);
@@ -32,22 +34,41 @@ namespace LemonadeStand
         //{
         //    Console.WriteLine("Today's weather is: {0} {1}", temperature, condition);
         //}
-        public void CreateWeather()
+        public void CreateTodaysWeather()
         {
             //Console.WriteLine("The weekly weather is:");
-            List<string> weatherForcase = new List<string> {"Today","Tomorrow's " };
+            List<string> weatherForcase = new List<string> {"Today"};
             foreach (string day in weatherForcase)
             {
-                TempWeather();
-                ConditionWeather();
-                Console.WriteLine(day + " weather is: {0} {1}  \n\n", temperature, condition);
+                DailyTemperature();
+                DailyCondition();
+                //Console.WriteLine(day + " weather is: {0} {1}  \n\n", temperature, condition);
             }
-           
         }
-        public void DisplayWeather()
+        public void DisplayTodaysWeather()
         {
             Console.WriteLine("Today's weather is: {0} {1}\n\n", temperature, condition);
-           
+        }
+        public void ForecastTemperature()
+        {
+            int DailyTemperature = random.Next(0, TemperatureOfWeather.Length);
+            forecastTemperature = TemperatureOfWeather[DailyTemperature];
+        }
+        public void ForecastCondition()
+        {
+            int WeatherCondition = random.Next(0, ConditionOfWeather.Length);
+            forecastCondition = (ConditionOfWeather[WeatherCondition]);
+        }
+
+        public void CreateForecastWeather()
+        {
+            List<string> weatherForcase = new List<string> { "Tomorrow's", "The next day's", "And the day after that's" };
+            foreach (string day in weatherForcase)
+            {
+                ForecastTemperature();
+                ForecastCondition();
+                Console.WriteLine(day + " forecast is: {0} {1}  \n\n", temperature, condition);
+            }
         }
     }
 }

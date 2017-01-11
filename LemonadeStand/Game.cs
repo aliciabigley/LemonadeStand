@@ -28,6 +28,8 @@ namespace LemonadeStand
         {
             day.CreateCustomers();
             DisplayWelcome();
+            day.SellLemonade(player);
+            
             //DisplayRules();
             //day.ChooseGameLenght();
             //weather.WeeklyWeather();
@@ -49,12 +51,12 @@ namespace LemonadeStand
         }
         public void MakeWeather()
         {
-            day.weather.CreateWeather();
+            day.weather.CreateTodaysWeather();
         }
         public void MainMenu()
         {
-            Console.WriteLine("Please type in the number of the menu item you would like to select.");
-            Console.WriteLine("1: Rules\n\n2: Weather\n\n3: Check Wallet\n\n4: Run to the store\n\n5: Check inventory\n\n6: Check recipe and make Lemonade.\n\n7:  Set price and play game");
+            Console.WriteLine("Please type in the number of the menu item you would like to select.\n\n");
+            Console.WriteLine("1: Rules\n\n2: Weather\n\n3: Check Wallet\n\n4: Run to the store\n\n5: Check inventory\n\n6: Check recipe and make Lemonade.\n\n7: Set price and play game");
             string value = Console.ReadLine();
             switch (value)
             {
@@ -68,9 +70,11 @@ namespace LemonadeStand
                     //Weather- make sure it doesn't regenerate weather everytime you select weather
                 case "2":
                     Console.Clear();
-                    day.weather.DisplayWeather();
+                    day.weather.DisplayTodaysWeather();
+                    day.weather.CreateForecastWeather();
                     Console.WriteLine("please hit 'enter' to go to the main meun.");
                     Console.ReadLine();
+
                     Console.Clear();
                     MainMenu();
                     break;

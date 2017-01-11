@@ -11,10 +11,11 @@ namespace LemonadeStand
         public Weather weather;
         public Customers customer;
         Random random;
-        //List<Customers> customers = new List<Customers>();
         int userInput;
+        double moneyEarned;
         public double willingToPay;
         int cupsToBeBought;
+        double pricePerCup;
         List<Customers> customers = new List<Customers>();
         List<double> costCustomersWillPay = new List<double> { .25, 1.00, .75, .90, 1.25 };
         List<int> cupsCustomersWillBuy = new List<int> { 1, 2, 1, 3, 1 };
@@ -30,21 +31,22 @@ namespace LemonadeStand
             this.userInput = userInput;
             return this.userInput; 
         }
-        public double PriceOfCup()
+        public double PriceOfCup()//RETURN TO MV
         {
             Console.WriteLine("What would you like to set the price for 1 cup of lemonade?");
             double pricePerCup = double.Parse(Console.ReadLine());
-            return pricePerCup;
+            this.pricePerCup = pricePerCup;
+            return this.pricePerCup;
 
         }
         public void DeterminedGameLenght() //move to game class
         {
-            
+
             if (userInput == 7)
             {
                 for (int i = 0; i < 7; i++)
                 {
-                    
+
                     for (int j = 1; j < 1; j++)
                     {
                         PriceOfCup();
@@ -92,10 +94,23 @@ namespace LemonadeStand
                 Customers customer = new Customers(amountToPay, numberOfCups);  //creates multiple customers
                 customers.Add(customer);
             }
-             
-            //return customers;
         }
-       
 
+        public double SellLemonade(Player player)
+        {
+            if (customer.buy == true)
+            {
+                moneyEarned = player.wallet.moneyInWallet * pricePerCup;
+                player.wallet.moneyInWallet = moneyEarned;
+            }
+            return player.wallet.moneyInWallet;
+        }
     }
-}
+}        
+                
+        //moneyEarned = player.moneyInWallet + ; 
+        //moneyInWallet = moneyEarned;
+        //return moneyInWallet;
+        
+
+    //priceCustomerPaid (how do I find this? is it an index?) * numberOfCupsPurchased(how do I find this? is it an index?)

@@ -17,16 +17,13 @@ namespace LemonadeStand
         double tempProbability;
         double conditionProbability;
         double costProbability;
-        bool buy;
+        public bool buy;
 
-        public Customers()
-        {
-            this.random = random;
-        }
         public Customers(double WillPayMax, int NumberOfCupsToBuy)
         {
             willPayMax = WillPayMax;
             numberOfCupsToBuy = NumberOfCupsToBuy;
+            this.random = random;
         }
         public void ChanceToBuyTemp(Weather weather)
         {
@@ -56,7 +53,6 @@ namespace LemonadeStand
         }
         public void ChanceToBuyCost(Day day)
         {
-        
             if (day.willingToPay == .25)
             {
                 costProbability = percent * .100;
@@ -101,6 +97,14 @@ namespace LemonadeStand
             {
                 buy = true;
             }
+        }
+        public void DeterminesCustomerBuys(Weather weather, Day day)
+        {
+            ChanceToBuyTemp(weather);
+            ChanceToBuyCondtion(weather);
+            ChanceToBuyCost(day);
+            RandomNumber();
+            CustomerBuysLemonade();
         }
 
         //List<Customers> customers = new List<Customers>();

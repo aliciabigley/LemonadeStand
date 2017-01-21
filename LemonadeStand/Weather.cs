@@ -67,7 +67,7 @@ namespace LemonadeStand
             {
                 ForecastTemperature();
                 ForecastCondition();
-                Console.WriteLine(day + " forecast is: {0} {1}  \n\n", temperature, condition);
+                Console.WriteLine(day + " forecast is: {0} {1}  \n\n", forecastTemperature, forecastCondition);
             }
         }
     }

@@ -9,7 +9,7 @@ namespace LemonadeStand
     public class Game
     {
         public Random random;
-        //public Weather weather;
+        public Weather weather;
         public Player player;
         public Store store;
         public Day day;
@@ -18,7 +18,7 @@ namespace LemonadeStand
         public Game()
         {
             random = new Random();
-            //weather  = new Weather(random);
+            weather  = new Weather(random);
             player = new Player();
             store = new Store();
             day = new Day(random);
@@ -104,6 +104,7 @@ namespace LemonadeStand
                     player.inventory.ShowAllProductInventory();
                     player.recipe.ChooseRecipe();
                     player.inventory.RemoveItemAfterLemonadeWasMade(player);
+                    day.CalculatingWhenToStopSelling(player);
                     Console.ReadLine();
                     Console.Clear();
                     MainMenu();
@@ -116,14 +117,20 @@ namespace LemonadeStand
                 case "7":
                     Console.Clear();
                     day.PriceOfCup();
-                    for(int i = 0; i < day.customers.Count; i++)
-                    {
-                        day.customers[i].DeterminesCustomerBuys(day.weather, day, randomValue);
+                    for (int d = 1; d <= 7; d++) {
+
+                        for (int i = 0; i < day.stopSelling; i++)
+                        {
+                            day.customers[i].DeterminesCustomerBuys(day.weather, day, randomValue);
+                        }
+                        day.SellLemonade(player);
+                        Console.WriteLine("End of day {0} ", (d));
+                        MainMenu();
                     }
-                    day.SellLemonade(player);
-                    //RestartGame();
+                    player.wallet.thisWeeksEarnings();
                     Console.ReadLine();
-                    MainMenu();
+                    RestartGame();
+                    //MainMenu();
                     Console.Clear();
                     break;
                     //show profit or loss for the week

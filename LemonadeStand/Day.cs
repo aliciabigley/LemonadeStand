@@ -11,9 +11,11 @@ namespace LemonadeStand
         public Weather weather;
         public Customers customer;
         int customersThoughoutDay = 50;
+        public double stopSelling;
         Random random;
         int userInput;
         double moneyEarned;
+        double sale;
         public double willingToPay;
         int cupsToBeBought;
         double pricePerCup;
@@ -39,17 +41,7 @@ namespace LemonadeStand
             this.pricePerCup = pricePerCup;
             return this.pricePerCup;
         }
-        public void DeterminedGameLenght() //move to game class
-        {
-            if (userInput == 7)
-            {
-                for (int i = 0; i < 7; i++)
-                {
 
-                }
-            }
-           
-        }
         public double PayingCustomers()
         {
             int customersWillingToPay = random.Next(0, costCustomersWillPay.Count);
@@ -74,18 +66,28 @@ namespace LemonadeStand
                 customers.Add(customer);
             }
         }
+
         public double SellLemonade(Player player)
         {
-            foreach (Customers customer in customers)
-            {
-                if (customer.buy == true)
+            //foreach (Customers customer in customers)
+            //{
+                for (int i = 0; i < stopSelling; i++)
                 {
-                    moneyEarned = player.wallet.moneyInWallet + pricePerCup;
-                    Console.WriteLine("You earned {0}!", moneyEarned);
-                    player.wallet.moneyInWallet += moneyEarned;
-                }
+                    if (customers[i].buy == true)
+                    {
+                        sale = pricePerCup;
+                        player.wallet.moneyInWallet += sale;
+                        moneyEarned = sale * stopSelling;
+                    }
+
+                //}
             }
+            Console.WriteLine("You earned {0}!", moneyEarned);
             return player.wallet.moneyInWallet;
+        }
+        public void CalculatingWhenToStopSelling(Player player)
+        {
+            stopSelling = player.recipe.cupsForRecipe * player.recipe.numberOfPitchers;
         }
     }
 }        

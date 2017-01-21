@@ -33,7 +33,13 @@ namespace LemonadeStand
             moneyInWallet = completeTransaction;
             return moneyInWallet;
         }
-        
+        public void thisWeeksEarnings()
+        {
+            double earnings;
+            double startingFunds = 10;
+            earnings = moneyInWallet - startingFunds;
+            Console.WriteLine("You made {0} this week!!!", earnings);
+        }
     }
 }
 

@@ -16,7 +16,7 @@ namespace LemonadeStand
         int lemonsForRecipe = 6;
         int sugarForRecipe = 7;
         int iceForRecipe = 25;
-        int cupsForRecipe = 10;
+        public int cupsForRecipe = 10;
         public void ChooseRecipe()
         {
             Console.WriteLine("\n\nWe have the perfect recipe passed down from your great, great, great Grandma Rosie!\n\n");
@@ -25,10 +25,10 @@ namespace LemonadeStand
             string userinput = Console.ReadLine().ToUpper();
             switch (userinput)
             {
-                case "N":
+                case "Y":
                     ChooseNumberOfPitchers();
                     break;
-                case "Y":
+                case "N":
                     MakeCustomRecipeLemons();
                     MakeCustomRecipeSugar();
                     MakeCustomRecipeIce();

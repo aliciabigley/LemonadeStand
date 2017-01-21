@@ -30,19 +30,13 @@ namespace LemonadeStand
             int WeatherCondition = random.Next(0, ConditionOfWeather.Length);
             condition = (ConditionOfWeather[WeatherCondition]);
         }
-        //public void DailyWeather()
-        //{
-        //    Console.WriteLine("Today's weather is: {0} {1}", temperature, condition);
-        //}
         public void CreateTodaysWeather()
         {
-            //Console.WriteLine("The weekly weather is:");
             List<string> weatherForcase = new List<string> {"Today"};
             foreach (string day in weatherForcase)
             {
                 DailyTemperature();
                 DailyCondition();
-                //Console.WriteLine(day + " weather is: {0} {1}  \n\n", temperature, condition);
             }
         }
         public void DisplayTodaysWeather()

@@ -22,8 +22,6 @@ namespace LemonadeStand
             player = new Player();
             store = new Store();
             day = new Day(random);
-
-
         }
         public void RunGame()
         {
@@ -37,7 +35,7 @@ namespace LemonadeStand
             Console.WriteLine("Your a buisnessman (or woman) at heart and figure you'll try your hand at making as much money as possible over the next 7 days.\n\n");
             Console.WriteLine("After hours of brainstorming, you finally settle on running a lemonade stand.\n\n");
             Console.WriteLine("You scrounged up $10.00 and will use this money to purchase ingredients from the store.");
-            Console.WriteLine("Please hit 'enter' to go to the main menu.");
+            Console.WriteLine("Please hit [enter] to go to the main menu.");
             Console.ReadLine();
             Console.Clear();
             MakeWeather();
@@ -65,7 +63,7 @@ namespace LemonadeStand
                     Console.Clear();
                     day.weather.DisplayTodaysWeather();
                     day.weather.CreateForecastWeather();
-                    Console.WriteLine("please hit 'enter' to go to the main meun.");
+                    Console.WriteLine("please hit [enter] to go to the main meun.");
                     Console.ReadLine();
                     Console.Clear();
                     MainMenu();
@@ -110,10 +108,7 @@ namespace LemonadeStand
                     MainMenu();
                     break;
 
-                    //play game- loop which reps the amount of days you want to play
-                    //set price of cup of lemonade
-                    // make customers
-                    //each day show profit or loss
+                    //Set price and Play Game
                 case "7":
                     Console.Clear();
                     day.PriceOfCup();
@@ -130,10 +125,8 @@ namespace LemonadeStand
                     player.wallet.thisWeeksEarnings();
                     Console.ReadLine();
                     RestartGame();
-                    //MainMenu();
                     Console.Clear();
                     break;
-                    //show profit or loss for the week
                 default:
                     Console.WriteLine("Sorry, that we don't have an option for that.\n\n");
                     MainMenu();
@@ -142,16 +135,16 @@ namespace LemonadeStand
         } 
         public void DisplayRules()
         {
-            Console.WriteLine("Welcome! My name is Alicia. I'm will be giving you the lowdown on how to run a sucessful lemonade stand.\n\n");
-            Console.WriteLine("First things first. You're about to set up shop in the busist part of Laguna Beach, CA!\n\n");
+            Console.WriteLine("Welcome! My name is Alicia. I'm will be giving you the lowdown on how to run a successful lemonade stand.\n\n");
+            Console.WriteLine("First things first. You're about to set up shop in the busiest part of Laguna Beach, CA!\n\n");
             Console.WriteLine("If you play your cards right, you can sell tons of lemonade every day.\n\n");
             Console.WriteLine("Every morning you will wake up and check the weather, brush your teeth, comb your hair, and get ready for the day.");
             Console.WriteLine("Then your check your inventory to see if you need run to the store to pick up more supplies.");
             Console.WriteLine("After that, you will determine the total number of cups of lemonade you want to make for the day. \n\n\n");
-            Console.WriteLine("You only get to make one batch thoughtout the day. So if you make too little you risk selling out.");
+            Console.WriteLine("You only get to make one batch throughout the day. So if you make too little you risk selling out.");
             Console.WriteLine("Make too much and you will have leftovers which you CANNOT use the next day.\n\n\n");
             Console.WriteLine("Finally, you will set a the price per cup.");
-            Console.WriteLine("Keep in mind that in all businesses you have start up costs and maintance costs. So you don't want to price your lemonade too low or too high.\n\n\n\n");
+            Console.WriteLine("Keep in mind that in all businesses you have start up costs and maintenance costs. So you don't want to price your lemonade too low or too high.\n\n\n\n");
             Console.WriteLine("please hit 'enter' to take you back to the menu.");
             Console.ReadLine();
             Console.Clear();

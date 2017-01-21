@@ -60,17 +60,15 @@ namespace LemonadeStand
         {
             for (int i = 0; i < customersThoughoutDay; i++)
             {                
-                int numberOfCups = CustomersWillingnessToBuy(); // number of cups to be purchase if price is met 
-                double amountToPay = PayingCustomers(); //at which price will the customer buy a cup
-                Customers customer = new Customers(amountToPay, numberOfCups);  //creates multiple customers
+                int numberOfCups = CustomersWillingnessToBuy(); 
+                double amountToPay = PayingCustomers(); 
+                Customers customer = new Customers(amountToPay, numberOfCups);
                 customers.Add(customer);
             }
         }
 
         public double SellLemonade(Player player)
         {
-            //foreach (Customers customer in customers)
-            //{
                 for (int i = 0; i < stopSelling; i++)
                 {
                     if (customers[i].buy == true)
@@ -79,8 +77,6 @@ namespace LemonadeStand
                         player.wallet.moneyInWallet += sale;
                         moneyEarned = sale * stopSelling;
                     }
-
-                //}
             }
             Console.WriteLine("You earned {0}!", moneyEarned);
             return player.wallet.moneyInWallet;

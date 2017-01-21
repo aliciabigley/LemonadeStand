@@ -20,7 +20,7 @@ namespace LemonadeStand
         public void ChooseRecipe()
         {
             Console.WriteLine("\n\nWe have the perfect recipe passed down from your great, great, great Grandma Rosie!\n\n");
-            Console.WriteLine("It contains 6 Lemons, 7 cups of sugar, 25 ice cubes making 10 cups of lemonade.\n\n");
+            Console.WriteLine("It contains 6 lemons, 7 cups of sugar, 25 ice cubes making 10 cups of lemonade.\n\n");
             Console.WriteLine("Would you like to use great, great, great Grandma Rosie's recipe? [Y] or [N]");
             string userinput = Console.ReadLine().ToUpper();
             switch (userinput)
@@ -43,7 +43,6 @@ namespace LemonadeStand
         }
         public int ChooseNumberOfPitchers()
         {
-
             Console.WriteLine("Things to keep in mind:");
             Console.WriteLine("1. The weather (the hotter it is the more cups you may sell)");
             Console.WriteLine("2. You can not save unused lemonade you did not sell the previous day.\n\n");
@@ -77,7 +76,7 @@ namespace LemonadeStand
         {
             Console.WriteLine("Your recipe consists of {0} lemons, {1} cups of sugar, {2} cubes of ice which makes {3} cups of lemonade!", lemonsForRecipe, sugarForRecipe, iceForRecipe, cupsForRecipe);
         }
-        public int TakeLemonsOut()  //fix: do not allow negative numbers.
+        public int TakeLemonsOut() 
         {
             removeLemonsFromInventory = numberOfPitchers * lemonsForRecipe;
             
@@ -98,13 +97,5 @@ namespace LemonadeStand
             removeCupFromInventory = numberOfPitchers * cupsForRecipe;
             return removeCupFromInventory;
         }
-        //public void PlayRecipe()
-        //{
-        //    ChooseRecipe();
-        //    TakeLemonsOut();
-        //    TakeSugarOut();
-        //    TakeIceOut();
-        //    TakeCupOut();
-        //}
     }
 }

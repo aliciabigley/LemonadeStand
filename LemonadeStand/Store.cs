@@ -68,9 +68,6 @@ namespace LemonadeStand
             {
                 player.wallet.buyProduct(checkOutLemons);
             }
-           
-                    
-            //player.wallet.buyProduct(checkOutLemons);
         }
         //Calling Lemons
         public void GetLemons(Player player)
@@ -80,7 +77,6 @@ namespace LemonadeStand
             PayForLemons(player);
             player.inventory.AddLemons(numberOfLemons);
             Console.WriteLine("\n\n");  
-            //player.inventory.ShowAllProductInventory();
             Restock(player);
         }
         public int NumberOfSugarNeeded()
@@ -113,7 +109,6 @@ namespace LemonadeStand
             NumberOfSugarPurchased(numberOfSugar);
             PayForSugar(player);
             player.inventory.AddSugar(numberOfSugar);
-            //player.inventory.ShowAllProductInventory();
             Restock(player);
         }
         //ice
@@ -124,7 +119,6 @@ namespace LemonadeStand
             int iceNeeded = int.Parse(Console.ReadLine());
             return iceNeeded;
         }
-
 
         public double NumberOfIceCubesPurchased(int NumberOfIceCubesNeeded)
         {
@@ -150,7 +144,6 @@ namespace LemonadeStand
             NumberOfIceCubesPurchased(numberOfIce);
             PayForIce(player);
             player.inventory.AddIce(numberOfIce);
-            //player.inventory.ShowAllProductInventory();
             Restock(player);
         }
 
@@ -185,10 +178,8 @@ namespace LemonadeStand
             NumberOfCupsPurchased(numberOfCups);
             PayForCups(player);
             player.inventory.AddCups(numberOfCups);
-            //player.inventory.ShowAllProductInventory();
             Restock(player);
         }
-
     }
 }
 

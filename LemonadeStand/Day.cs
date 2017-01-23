@@ -27,19 +27,21 @@ namespace LemonadeStand
             weather = new Weather(random);
             this.random = random;
         }
-        //public int ChooseGameLenght()
-        //{
-        //    //Console.WriteLine("How many days would you like to run your stand? [7] [14]");
-        //    //int userInput = int.Parse(Console.ReadLine());
-        //    //this.userInput = userInput;
-        //    //return this.userInput; 
-        //}
         public double PriceOfCup()
         {
             Console.WriteLine("Before we start the day, please set the cost for 1 cup of lemonade:");
-            double pricePerCup = double.Parse(Console.ReadLine());
-            this.pricePerCup = pricePerCup;
-            return this.pricePerCup;
+            try
+            {
+                double pricePerCup = double.Parse(Console.ReadLine());
+                this.pricePerCup = pricePerCup;
+                return this.pricePerCup;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Oops! Something's not right. Try selling a cup for $0.25 or $1.00.");
+                PriceOfCup();
+                throw;
+            }
         }
 
         public double PayingCustomers()

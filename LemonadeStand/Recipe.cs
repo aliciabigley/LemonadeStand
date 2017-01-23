@@ -57,20 +57,47 @@ namespace LemonadeStand
         {
             Console.WriteLine("Let's create your custom recipe:");
             Console.WriteLine("How many lemons would you like to add?");
-            int lemonsForRecipe = int.Parse(Console.ReadLine());
-            return this.lemonsForRecipe = lemonsForRecipe;
+            try
+            {
+                int lemonsForRecipe = int.Parse(Console.ReadLine());
+                return this.lemonsForRecipe = lemonsForRecipe;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Please enter a vaild number");
+                MakeCustomRecipeLemons();
+                throw;
+            }
         }
         public int MakeCustomRecipeSugar()
         {
             Console.WriteLine("How much sugar would you like to add?");
-            int sugarForRecipe = int.Parse(Console.ReadLine());
-            return this.sugarForRecipe = sugarForRecipe;
+            try
+            {
+                int sugarForRecipe = int.Parse(Console.ReadLine());
+                return this.sugarForRecipe = sugarForRecipe;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Please enter a vaild number");
+                MakeCustomRecipeSugar();
+                throw;
+            }
         }
         public int MakeCustomRecipeIce()
         {
             Console.WriteLine("How much Ice would you like to add?");
-            int iceForRecipe = int.Parse(Console.ReadLine());
-            return this.iceForRecipe = iceForRecipe;
+            try
+            {
+                int iceForRecipe = int.Parse(Console.ReadLine());
+                return this.iceForRecipe = iceForRecipe;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Please enter a vaild number");
+                MakeCustomRecipeIce();
+                throw;
+            }
         }
         public void DisplayCustomRecipe()
         {
@@ -78,24 +105,62 @@ namespace LemonadeStand
         }
         public int TakeLemonsOut() 
         {
-            removeLemonsFromInventory = numberOfPitchers * lemonsForRecipe;
-            
-            return removeLemonsFromInventory;
+            try
+            {
+                removeLemonsFromInventory = numberOfPitchers * lemonsForRecipe;
+                return removeLemonsFromInventory;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Oops! You don't have enough lemons. Let's start this recipe over.");
+                ChooseRecipe();
+                throw;
+            }
+
         }
         public int TakeSugarOut()
         {
-            removeSugarFromInventory = numberOfPitchers * sugarForRecipe;
-            return removeSugarFromInventory;
+            try
+            {
+                removeSugarFromInventory = numberOfPitchers * sugarForRecipe;
+                return removeSugarFromInventory;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Oops! You don't have enough sugar.Let's start this recipe over.");
+                ChooseRecipe();
+                throw;
+            }
+
         }
         public int TakeIceOut()
         {
-            removeIceFromInventory = numberOfPitchers * iceForRecipe;
-            return removeIceFromInventory;
+            try
+            {
+                removeIceFromInventory = numberOfPitchers * iceForRecipe;
+                return removeIceFromInventory;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Oops! You don't have enough ice. Let's start this recipe over.");
+                ChooseRecipe();
+                throw;
+            }
+           
         }
         public int TakeCupsOut()
         {
-            removeCupFromInventory = numberOfPitchers * cupsForRecipe;
-            return removeCupFromInventory;
+            try
+            {
+                removeCupFromInventory = numberOfPitchers * cupsForRecipe;
+                return removeCupFromInventory;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Oops! You don't have enough ice. Let's start this recipe over.");
+                ChooseRecipe();
+                throw;
+            }
         }
     }
 }

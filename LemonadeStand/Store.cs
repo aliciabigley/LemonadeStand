@@ -45,12 +45,22 @@ namespace LemonadeStand
             }
         }
         //lemons
-        public int NumberOfLemonsNeeded()
+        public int NumberOfLemonsNeeded(Player player)
         {
             Console.WriteLine("Lemons are 10 cents each.\n\n");
             Console.WriteLine("How many lemons would you like?\n\n");
-            int lemonsNeeded = int.Parse(Console.ReadLine());
-            return lemonsNeeded;
+            try
+            {
+                int lemonsNeeded = int.Parse(Console.ReadLine());
+                return lemonsNeeded;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Oops! Try a number next time.\n\n");
+                Restock(player);
+                throw;
+            }
+
         }
         
         public double NumberOfLemonsPurchased(int NumberOfLemonsToBuy)
@@ -63,6 +73,7 @@ namespace LemonadeStand
         {
             if (player.wallet.checkIfBankrupt(checkOutLemons))
             {
+                Restock(player);
             }
             else 
             {
@@ -72,19 +83,29 @@ namespace LemonadeStand
         //Calling Lemons
         public void GetLemons(Player player)
         {
-            int numberOfLemons = NumberOfLemonsNeeded();
+            int numberOfLemons = NumberOfLemonsNeeded(player);
             NumberOfLemonsPurchased(numberOfLemons);
             PayForLemons(player);
             player.inventory.AddLemons(numberOfLemons);
             Console.WriteLine("\n\n");  
             Restock(player);
         }
-        public int NumberOfSugarNeeded()
+        public int NumberOfSugarNeeded(Player player)
         {
             Console.WriteLine("Each cup of sugar is .35 cents each.\n\n");
             Console.WriteLine("How many cups of sugar would you like?\n\n");
-            int sugarNeeded = int.Parse(Console.ReadLine());
-            return sugarNeeded;
+            try
+            {
+                int sugarNeeded = int.Parse(Console.ReadLine());
+                return sugarNeeded;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Oops! Try a number next time.\n\n");
+                Restock(player);
+                throw;
+            }
+
         }
         public double NumberOfSugarPurchased(int NumberOfSugarNeeded)
         {
@@ -96,6 +117,7 @@ namespace LemonadeStand
         {
             if (player.wallet.checkIfBankrupt(checkOutSugar))
             {
+                Restock(player);
             }
             else
             {
@@ -105,19 +127,29 @@ namespace LemonadeStand
         //Calling Sugar
         public void GetSugar(Player player)
         {
-            int numberOfSugar = NumberOfSugarNeeded();
+            int numberOfSugar = NumberOfSugarNeeded(player);
             NumberOfSugarPurchased(numberOfSugar);
             PayForSugar(player);
             player.inventory.AddSugar(numberOfSugar);
             Restock(player);
         }
         //ice
-        public int NumberOfIceCubesNeeded()
+        public int NumberOfIceCubesNeeded(Player player)
         {
             Console.WriteLine("Ice Cubes are .05 cents each.\n\n");
             Console.WriteLine("How many ice cubes would you like?\n\n");
-            int iceNeeded = int.Parse(Console.ReadLine());
-            return iceNeeded;
+            try
+            {
+                int iceNeeded = int.Parse(Console.ReadLine());
+                return iceNeeded;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Oops! Try a number next time.\n\n");
+                Restock(player);
+                throw;
+            }
+           
         }
 
         public double NumberOfIceCubesPurchased(int NumberOfIceCubesNeeded)
@@ -130,6 +162,7 @@ namespace LemonadeStand
         {
             if (player.wallet.checkIfBankrupt(checkOutIceCubes))
             {
+                Restock(player);
             }
             else
             {
@@ -140,7 +173,7 @@ namespace LemonadeStand
         //Calling Ice
         public void GetIce (Player player)
         {
-            int numberOfIce = NumberOfIceCubesNeeded();
+            int numberOfIce = NumberOfIceCubesNeeded(player);
             NumberOfIceCubesPurchased(numberOfIce);
             PayForIce(player);
             player.inventory.AddIce(numberOfIce);
@@ -148,12 +181,21 @@ namespace LemonadeStand
         }
 
         //Cups
-        public int NumberOfCupsNeeded()
+        public int NumberOfCupsNeeded(Player player)
         {
             Console.WriteLine("Each cup is .05 cents each.\n\n");
             Console.WriteLine("How many cups would you like?\n\n");
-            int cupsNeeded = int.Parse(Console.ReadLine());
-            return cupsNeeded;
+            try
+            {
+                int cupsNeeded = int.Parse(Console.ReadLine());
+                return cupsNeeded;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Oops! Try a number next time.\n\n");
+                Restock(player);
+                throw;
+            }
         }
         public double NumberOfCupsPurchased(int NumberOfCupsNeeded)
         {
@@ -165,6 +207,7 @@ namespace LemonadeStand
         {
             if (player.wallet.checkIfBankrupt(checkOutCups))
             {
+                Restock(player);
             }
             else
             {
@@ -174,7 +217,7 @@ namespace LemonadeStand
         //calling Cups
         public void GetCups(Player player)
         {
-            int numberOfCups = NumberOfCupsNeeded();
+            int numberOfCups = NumberOfCupsNeeded(player);
             NumberOfCupsPurchased(numberOfCups);
             PayForCups(player);
             player.inventory.AddCups(numberOfCups);

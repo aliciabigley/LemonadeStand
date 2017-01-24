@@ -102,6 +102,7 @@ namespace LemonadeStand
                     player.inventory.ShowAllProductInventory();
                     player.recipe.ChooseRecipe();
                     player.inventory.RemoveItemAfterLemonadeWasMade(player);
+                    Console.WriteLine("You now have {0} cups of lemonade!!", (player.recipe.numberOfPitchers * player. recipe.cupsForRecipe));
                     day.CalculatingWhenToStopSelling(player);
                     Console.ReadLine();
                     Console.Clear();
@@ -119,7 +120,6 @@ namespace LemonadeStand
                             day.customers[i].DeterminesCustomerBuys(day.weather, day, randomValue);
                         }
                         day.SellLemonade(player);
-                        Console.WriteLine("End of day {0} ", (d));
                         MainMenu();
                     }
                     player.wallet.thisWeeksEarnings();

@@ -24,11 +24,20 @@ namespace LemonadeStand
         
         public void RemoveLemons(Player player)
         {
-            int lemonsToRemove = player.recipe.TakeLemonsOut();
-            for (int i = 0; i < lemonsToRemove; i++)
+            try
             {
-                lemons.RemoveAt(0);
+                int lemonsToRemove = player.recipe.TakeLemonsOut();
+                for (int i = 0; i < lemonsToRemove; i++)
+                {
+                    lemons.RemoveAt(0);
+                }
             }
+            catch (Exception)
+            {
+                Console.WriteLine("Oops! Looks like you need modify your recipe. Let's try again.");
+                player.recipe.ChooseRecipe();
+                throw;
+            }           
         }
         public void AddSugar(int NumberOfSugarNeeded)
         {
@@ -41,10 +50,19 @@ namespace LemonadeStand
         }
         public void RemoveSugar(Player player)
         {
-            int sugarToRemove = player.recipe.TakeSugarOut();
-            for (int i = 0; i < sugarToRemove; i++)
+            try
             {
-                sugar.RemoveAt(0);
+                int sugarToRemove = player.recipe.TakeSugarOut();
+                for (int i = 0; i < sugarToRemove; i++)
+                {
+                    sugar.RemoveAt(0);
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Oops! Looks like you need modify your recipe. Let's try again.");
+                player.recipe.ChooseRecipe();
+                throw;
             }
         }
         public void AddIce(int NumberOfIceCubesNeeded)
@@ -58,11 +76,21 @@ namespace LemonadeStand
         }
         public void RemoveIce(Player player)
         {
-            int iceToRemove = player.recipe.TakeIceOut();
-            for (int i = 0; i < iceToRemove; i++)
+            try
             {
-                ice.RemoveAt(0);
+                int iceToRemove = player.recipe.TakeIceOut();
+                for (int i = 0; i < iceToRemove; i++)
+                {
+                    ice.RemoveAt(0);
+                }
             }
+            catch (Exception)
+            {
+                Console.WriteLine("Oops! Looks like you need modify your recipe. Let's try again.");
+                player.recipe.ChooseRecipe();
+                throw;
+            }
+            
         }
         public void AddCups(int NumberOfCupsNeeded)
         {
@@ -75,10 +103,19 @@ namespace LemonadeStand
         }
         public void RemoveCups(Player player) 
         {
-            int removeCups = player.recipe.TakeCupsOut();
-            for (int i = 0; i < removeCups; i++)
+            try
             {
-                cups.RemoveAt(0);
+                int removeCups = player.recipe.TakeCupsOut();
+                for (int i = 0; i < removeCups; i++)
+                {
+                    cups.RemoveAt(0);
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Oops! Looks like you need modify your recipe. Let's try again.");
+                player.recipe.ChooseRecipe();
+                throw;
             }
         }
         public void ShowAllProductInventory()

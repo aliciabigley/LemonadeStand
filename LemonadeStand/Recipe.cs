@@ -47,10 +47,18 @@ namespace LemonadeStand
             Console.WriteLine("1. The weather (the hotter it is the more cups you may sell)");
             Console.WriteLine("2. You can not save unused lemonade you did not sell the previous day.\n\n");
             Console.WriteLine("How many pitchers do you want to make?");
-            int numberOfPitchers = int.Parse(Console.ReadLine());
-            Console.WriteLine("You now have {0} cups of lemonade!!", (numberOfPitchers * cupsForRecipe));
-            this.numberOfPitchers = numberOfPitchers;
-            return this.numberOfPitchers;
+            try
+            {
+                int numberOfPitchers = int.Parse(Console.ReadLine());  
+                this.numberOfPitchers = numberOfPitchers;
+                return this.numberOfPitchers;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Oops! You have to make less pitchers or run back to the store.");
+                ChooseNumberOfPitchers();
+                throw;
+            }
         }
 
         public int MakeCustomRecipeLemons()
@@ -112,7 +120,7 @@ namespace LemonadeStand
             }
             catch (Exception)
             {
-                Console.WriteLine("Oops! You don't have enough lemons. Let's start this recipe over.");
+                Console.WriteLine("Oops! You don't have enough lemons. Let's start this recipe over.\n\n");
                 ChooseRecipe();
                 throw;
             }
@@ -127,7 +135,7 @@ namespace LemonadeStand
             }
             catch (Exception)
             {
-                Console.WriteLine("Oops! You don't have enough sugar.Let's start this recipe over.");
+                Console.WriteLine("Oops! You don't have enough sugar.Let's start this recipe over.\n\n");
                 ChooseRecipe();
                 throw;
             }
@@ -142,7 +150,7 @@ namespace LemonadeStand
             }
             catch (Exception)
             {
-                Console.WriteLine("Oops! You don't have enough ice. Let's start this recipe over.");
+                Console.WriteLine("Oops! You don't have enough ice. Let's start this recipe over.\n\n");
                 ChooseRecipe();
                 throw;
             }
@@ -157,7 +165,7 @@ namespace LemonadeStand
             }
             catch (Exception)
             {
-                Console.WriteLine("Oops! You don't have enough ice. Let's start this recipe over.");
+                Console.WriteLine("Oops! You don't have enough ice. Let's start this recipe over.\n\n");
                 ChooseRecipe();
                 throw;
             }
